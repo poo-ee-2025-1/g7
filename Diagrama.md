@@ -8,6 +8,15 @@ left to right direction
 actor Usuário
 
 
+
+rectangle "Empresas" {
+  usecase "Cadastrar empresas" as UC6
+}
+
+rectangle "Cadastro de equipamentos" {
+  usecase "Cadastrar equipamentos" as UC7
+}
+
 rectangle "Sistema de monitoramento" {
   usecase "Análise de equipamentos" as UC5
 }
@@ -19,11 +28,15 @@ rectangle "Equipamentos" {
   usecase "Painel Elétrico" as UC4
 }
 
-Usuário --> UC5
+Usuário --> UC6
+UC6 --> UC7
+UC7 --> "Equipamentos"
+UC6 --> UC5
 UC5 --> UC1
 UC5 --> UC2
 UC5 --> UC3
 UC5 --> UC4
+
 
 @enduml
 ```
@@ -34,4 +47,4 @@ UC5 --> UC4
 ## Imagem do Diagrama de Casos de Uso:
 
 
-![Diagrama de Casos de Uso](https://img.plantuml.biz/plantuml/png/PP1DQiD038NtEeNmFelyT5jIIkYg44Xp064hgM1cr6ZaLUXXikmvVB6E4nV6T27uu7qy7jfc9_C-1WXySdH5a_EdOoV6hOic06fT3O-v7suc2W1ZGkaS69k3PET8s356JL94YfnS6xm2Of-vfLoqbpJSWXGg7bzw-NfOkK7AU7nzWkzPwswcp9hUTHop2yEFcxGw5InhvOsDEhKfMjNHXr7A9xLO2UjQs9Ca3l_wD-F0lm_WOl5y7rrkucN5guhN5My0jfowykfV)
+![Diagrama de Casos de Uso](https://img.plantuml.biz/plantuml/png/VPBFQiCm3CRlWRo3wBs7_ibo6nqbx3GOR7q0aQYTmROwMJcDFKoFUuwysEB66qa3nM3yoPz_acplWg9ewsoUMJegA8EOquT2OuHgDUppBC-mLXOuXBQxYE4OYICQq9yimQ9oPw60OG5VUGRG1genzF4zDXXKK83-7HZWi7_8i-yRHl8oD0JqsPepElBAzvWJrvLRphbl9YWvZ5Z7tlIT34TkkK--krZJhsRvh-HYJgxkLFd2ySegs_sec9eJP3NnF9DWmvBsrfEzTq4VZYnkvDXC7AzeFDbPYcsgy--rOBby72wydv8eeoYlOjh4s5H4KIIn6elrM6p6OZlyZ1tvflzJlm00)
