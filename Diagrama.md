@@ -1,7 +1,8 @@
 # Código do Diagrama de Caso de Uso:
 
 
-'''@startuml
+```
+@startuml
 left to right direction
 
 actor Usuário
@@ -24,7 +25,8 @@ UC5 --> UC2
 UC5 --> UC3
 UC5 --> UC4
 
-@enduml'''
+@enduml
+```
 
 
 
