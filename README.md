@@ -47,13 +47,13 @@ Criar um sistema de software, utilizando os princípios da Programação Orienta
 # Seção 3 - Divisão de tarefas
 
 * Gabriel -20%- Programação das classes de usuário, alerta;
-* Gustavo -20%- ;
+* Gustavo -20%- Começo da harmonização das classes na classe controladora JavaFX;
 * João Pedro -20%- Criação de classe iniciais e diagramas de casos de uso e de sequência;
 * Miguel -20%- Seção 1 e 2, e diagrama de classes;
 
 ## Responsabilidades futuras
 * Gabriel - Codificação e criação de classes adicionais e banco de dados;
-* Gustavo - Programação da classe controladora JavaFX, e desenvolvimento do layout interativo no SceneBuilder;
+* Gustavo - (Interface) Programação da classe controladora JavaFX, e desenvolvimento do layout interativo no SceneBuilder;
 * João Pedro - Codificação e criação das classes de equipamentos e métodos para verificar a situação de cada um;
 * Miguel - Próximos diagramas necessários;
 
