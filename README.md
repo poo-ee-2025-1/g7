@@ -26,7 +26,7 @@ Criar um sistema de software, utilizando os princípios da Programação Orienta
 * Permitir o cadastro completo dos equipamentos elétricos, com informações como nome, tipo, fabricante, data de compra e tempo estimado de vida útil;
 * Desenvolver funcionalidades para agendar e acompanhar manutenções preventivas e corretivas, com alertas automáticos para lembrar os responsáveis;
 * Gerar relatórios históricos com base em período, tipo de manutenção, status e outros filtros personalizados;
-* Incluir a opção de múltiplos usuários com diferentes níveis de acesso e permissões, conforme suas funções;
+* Incluir a opção de múltiplas empresas a serem cadastradas;
 * Conectar o sistema a um banco de dados para garantir a segurança e persistência das informações;
 * Utilizar boas práticas da POO para manter o código organizado, reutilizável e fácil de manter ou expandir futuramente.
 
