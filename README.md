@@ -1,6 +1,8 @@
 # g7
 Projeto do Grupo 7
 
+---
+
 # Seção 1 – Introdução
 
 Manter os equipamentos elétricos em bom estado é fundamental para garantir segurança, evitar falhas e manter tudo funcionando bem em indústrias, empresas e até em condomínios. Quando a manutenção não é feita do jeito certo, os riscos aumentam: podem acontecer acidentes, paradas inesperadas nas operações e até prejuízos financeiros. Mesmo assim, ainda é comum ver organizações controlando essas manutenções apenas com planilhas simples ou anotações, o que dificulta muito o acompanhamento e a tomada de decisões mais inteligentes (PIRES, 2019).
