@@ -1,5 +1,37 @@
 # Diagrama de classes
 
+## Código
+
+```
+@startuml
+
+class Equipamentos {
+  - tipo: String
+  - nome: String
+  - id: int
+  - dataInstalacao: LocalDate
+  - vidaUtil: int
+  - ultimaVerificacao: LocalDate
+  + mostrarInfo(): void
+  + simularFalha(): void
+}
+
+class MotorEletrico {
+  - temperaturaAtual: double
+  + simularFalha(): boolean
+}
+
+class Gerador {
+  - horasUsado: double
+  + simularFalha(): boolean
+}
+
+Equipamentos <|-- MotorEletrico
+Equipamentos <|-- Gerador
+
+@enduml
+```
+
 ![Diadrama de classes](https://cdn-0.plantuml.com/plantuml/png/ZP31IWCn48RlUOeS5TaNM3nKi4f1JrBlVpTJEp39h9D9B-gxMnRNijI3j_3zcI_vPrKTvYrB28EWrhX-RpmYKt6jyIF4s4NdKVluuiRbRG95Coq0fpvoyUcSuDYKwX0CECqzwG2vXzEK7ZbXwopd-qsSCrx9UC_3vSXDp5hTO9korwlhFXwLqyGhvoQm1yW1ly7NtEDPNMqjvCQ3paKeZsJmPhZp1kbZqhOJ-bEtKnL2EHiVoP3KVbm7DTHjFP7_MXQRlVtikkKVB_FvnH1ML5BB4hu1)
 
 
