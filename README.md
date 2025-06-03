@@ -1,6 +1,8 @@
 # g7
 Projeto do Grupo 7
 
+---
+
 # Seção 1 – Introdução
 
 Manter os equipamentos elétricos em bom estado é fundamental para garantir segurança, evitar falhas e manter tudo funcionando bem em indústrias, empresas e até em condomínios. Quando a manutenção não é feita do jeito certo, os riscos aumentam: podem acontecer acidentes, paradas inesperadas nas operações e até prejuízos financeiros. Mesmo assim, ainda é comum ver organizações controlando essas manutenções apenas com planilhas simples ou anotações, o que dificulta muito o acompanhamento e a tomada de decisões mais inteligentes (PIRES, 2019).
@@ -39,3 +41,29 @@ Criar um sistema de software, utilizando os princípios da Programação Orienta
 * TECNOGAMES BRASIL. Xiaomi inaugura fábrica inteligente e autônoma capaz de produzir 10 milhões de smartphones por ano. 2024. Disponível em: [https://tecnogamesbrasil.com.br/2024/07/11/xiaomi-inaugura-fabrica-inteligente-e-autonoma-capaz-de-produzir-10-milhoes-de-smartphones-por-ano/](https://tecnogamesbrasil.com.br/2024/07/11/xiaomi-inaugura-fabrica-inteligente-e-autonoma-capaz-de-produzir-10-milhoes-de-smartphones-por-ano/). Acesso em: 02 jun. 2025.
 
 * NEW ATLAS. Xiaomi's self-optimizing autonomous factory will make 10M+ phones a year. 2024. Disponível em: [https://newatlas.com/robotics/xiaomi-dark-robotic-factory](https://newatlas.com/robotics/xiaomi-dark-robotic-factory). Acesso em: 02 jun. 2025.
+
+---
+
+# Seção 3 - Divisão de tarefas
+
+* Gabriel -20%- Programação das classes de usuário, alerta;
+* Gustavo -20%- ;
+* João Pedro -20%- Criação de classe iniciais e diagramas de casos de uso e de sequência;
+* Miguel -20%- Seção 1 e 2, e diagrama de classes;
+
+## Responsabilidades futuras
+* Gabriel - Codificação e criação de classes adicionais e banco de dados;
+* Gustavo - Programação da classe controladora JavaFX, e desenvolvimento do layout interativo no SceneBuilder;
+* João Pedro - Codificação e criação das classes de equipamentos e métodos para verificar a situação de cada um;
+* Miguel - Próximos diagramas necessários;
+
+---
+
+# Seção 4 - Diagramas
+
+* Pasta Dagram.md
+
+---
+
+
+
