@@ -34,7 +34,7 @@ Criar um sistema de software, utilizando os princípios da Programação Orienta
 
 ---
 
-# Referências
+# Referências seções 1 e 2
 
 * PIRES, V. da S. Manutenção elétrica: planejamento, controle e análise de falhas. 2. ed. São Paulo: Érica, 2019.
 
