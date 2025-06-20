@@ -1,0 +1,57 @@
+# Gerenciamento de Manutenção de Equipamentos Elétricos com Apoio de Sistemas Digitais
+
+A manutenção de equipamentos elétricos é um tema essencial quando falamos de confiabilidade, segurança e eficiência energética em ambientes industriais e prediais. À medida que a tecnologia avança, especialmente com a digitalização dos processos e a chegada da Indústria 4.0, a forma como lidamos com esses ativos também precisa evoluir.
+
+## 1. A Importância da Manutenção Elétrica Preventiva
+
+Equipamentos como motores, transformadores e geradores são fundamentais para o funcionamento de diversos sistemas, mas também estão sujeitos a falhas decorrentes do uso contínuo, envelhecimento, condições ambientais ou até falhas humanas.
+
+Manter esses ativos em boas condições requer mais do que apenas consertar quando algo quebra. Segundo a empresa **Hawkins Electric**, ações de manutenção preventiva bem planejadas podem reduzir em até 60% as chances de falhas críticas. Já a **North Central Electric** reforça que esse tipo de cuidado aumenta significativamente a vida útil dos equipamentos e garante maior segurança para operadores e ambientes.
+
+Além disso, normas técnicas como a **NFPA 70B** estabelecem diretrizes específicas para inspeções periódicas, reforçando que esse tipo de manutenção não é apenas recomendável, mas muitas vezes **obrigatório** para cumprir requisitos legais e técnicos.
+
+## 2. O Papel dos Sistemas CMMS
+
+Com a ajuda dos sistemas CMMS (*Computerized Maintenance Management Systems*), a gestão de manutenção se torna muito mais eficiente. Eles permitem organizar informações de cada equipamento, programar inspeções, registrar ordens de serviço e gerar relatórios de maneira centralizada.
+
+A empresa **Accruent**, referência na área, destaca os seguintes benefícios dos CMMS:
+
+* Redução dos custos com manutenções corretivas;
+* Aumento da confiabilidade e tempo de operação dos equipamentos;
+* Melhor organização das atividades dos técnicos;
+* Facilidade na geração de relatórios e cumprimento de auditorias;
+* Maior segurança, com alertas de inspeções vencidas e falhas detectadas.
+
+Em outras palavras, o CMMS ajuda a trazer **previsibilidade** para um cenário que antes era muito baseado na reação às emergências.
+
+## 3. Manutenção Preditiva e a Indústria 4.0
+
+Com a chegada de novas tecnologias como **IoT (Internet das Coisas)**, **Inteligência Artificial** e **Machine Learning**, a manutenção está dando mais um salto: agora é possível prever falhas antes mesmo que elas aconteçam.
+
+Pesquisas recentes, como a de **Zhu et al. (2019)**, mostram que algoritmos de IA podem identificar padrões em dados operacionais que seriam invisíveis para um técnico. Isso permite prever quando um equipamento pode falhar e agir com antecedência — essa é a chamada **manutenção preditiva**.
+
+Outros estudos, como os de **Arifidi et al. (2021)** e **Kane et al. (2022)**, comprovam a aplicação dessa tecnologia em sistemas de energia renovável, detecção de falhas em transformadores e até arcos elétricos em painéis — tudo isso com um grau de precisão e rapidez muito superior ao dos métodos tradicionais.
+
+## 4. Aplicação no Projeto
+
+Este projeto de sistema de gerenciamento de manutenção foi idealizado com base em todas essas práticas modernas. Através da modelagem orientada a objetos em Java, estamos construindo um sistema que:
+
+* Cadastra equipamentos elétricos com seus dados técnicos;
+* Simula falhas e calcula desgaste com base em variáveis específicas;
+* Emite alertas de inspeções e gera relatórios de manutenção;
+* Pode futuramente integrar sensores ou bancos de dados para evolução preditiva.
+
+Assim, o sistema funciona como uma espécie de **CMMS simplificado e educacional**, sendo aplicável tanto para condomínios quanto para ambientes industriais de pequeno e médio porte.
+
+---
+
+## 📎 Referências
+
+* Accruent (2025). *10 Benefits of CMMS Software in 2025*. Disponível em: [https://www.accruent.com](https://www.accruent.com)
+* Hawkins Electric. *Importance of Electrical Preventative Maintenance*. Disponível em: [https://www.hawkinselectric.com](https://www.hawkinselectric.com)
+* North Central Electric. *Electrical Preventive Maintenance Programs*. Disponível em: [https://www.ncelec.org](https://www.ncelec.org)
+* NFPA 70B – Recommended Practice for Electrical Equipment Maintenance
+* Shaheen, F., & Németh, Z. (2022). *Integration of Maintenance Management System Functions with Industry 4.0*. IEEE Xplore.
+* Zhu, R. et al. (2019). *A Survey of Predictive Maintenance using Machine Learning*. Journal of Systems and Software.
+* Arifidi, M. et al. (2021). *Artificial Intelligence Based Prognostic Maintenance of Renewable Energy Systems*. Renewable and Sustainable Energy Reviews.
+* Kane, D. et al. (2022). *Predictive Maintenance with AI: Trends and Applications*. Springer.
