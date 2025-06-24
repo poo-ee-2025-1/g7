@@ -124,7 +124,7 @@ Trata-se de uma solução funcional e educativa, semelhante a um **CMMS simplifi
 
 ##  Motor Elétrico
 
-** Vida útil média: ~5 anos**
+**Vida útil média: ~5 anos**
 
 O motor elétrico é um equipamento essencial em ambientes industriais, responsável por transformar energia elétrica em energia mecânica. Essa energia mecânica é utilizada para acionar máquinas, através do acoplamento motor-máquina, sendo peça-chave no funcionamento da linha de produção.  
 Fonte: [DME - Motores Elétricos](https://www.dmedsa.com.br/conccel/48-paginas/economia-de-energia/170-motores-eletricos)
@@ -190,7 +190,7 @@ Para facilitar o controle e o monitoramento, recomenda-se cadastrar os seguintes
 
 ##  Gerador de Energia
 
-** Vida útil média: 10 a 20 anos**  
+**Vida útil média: 10 a 20 anos**  
 Fonte: [Tivea Geradores](https://www.tiveageradores.com/produtos/quanto-tempo-dura-um-gerador-de-energia/)
 
 O gerador de energia é um equipamento essencial em ambientes industriais e comerciais, responsável por converter diferentes formas de energia (mecânica, química, solar, entre outras) em energia elétrica.  
@@ -273,7 +273,7 @@ Para controle e monitoramento dentro do sistema de gerenciamento, recomenda-se r
 
 ##  Transformador Elétrico
 
-** Vida útil média: ~20 anos**  
+**Vida útil média: ~20 anos**  
 Fonte: [Confea – Vida Útil de Transformadores](https://www.confea.org.br/midias/uploads-imce/Contecc2021/Eletricista/A%20VIDA%20%C3%9ATIL%20DE%20TRANSFORMADORES%20EL%C3%89TRICOS%20EM%20RESINA%20EP%C3%93XI.pdf)
 
 O transformador é um dos componentes mais críticos de um sistema elétrico. Ele tem a função de **modificar os níveis de tensão**, seja para reduzir a tensão da rede elétrica (baixa tensão) para uso interno ou elevar a tensão para transmissão em longas distâncias. Essa adaptação é essencial para manter o bom funcionamento de máquinas, equipamentos e sistemas ligados à rede elétrica.  
@@ -337,7 +337,7 @@ Para garantir um monitoramento eficaz, é importante registrar os seguintes dado
 
 ##  Painel de Distribuição Elétrica (Quadro de Distribuição)
 
-** Vida útil média: ~15 anos**  
+**Vida útil média: ~15 anos**  
 Fonte: [IBAPE Nacional – Estudo de Vidas Úteis](https://ibape-nacional.com.br/admin/images/Estudo%20de%20vidas%20_teis%20de%20bens.pdf)
 
 O quadro de distribuição é o ponto central onde todos os circuitos elétricos de uma instalação — seja industrial, comercial ou residencial — se conectam. Através dele, a energia recebida da concessionária é distribuída de forma organizada e segura entre os diversos setores, máquinas, pontos de iluminação e tomadas.  
