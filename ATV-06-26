@@ -1,0 +1,140 @@
+@DatabaseTable(tableName = "gerador")
+public class Gerador extends Equipamento {
+    @DatabaseField
+    private String tipoCombustivel;
+
+    @DatabaseField
+    private double potencia;
+
+    // Getters e setters
+}
+
+---
+// no scene builder
+AnchorPane
+├── TableView fx:id="tabela"
+│   ├── TableColumn fx:id="idCol"
+│   ├── TableColumn fx:id="nomeCol"
+│   ├── TableColumn fx:id="localizacaoCol"
+│   ├── TableColumn fx:id="tipoCombustivelCol"
+│   └── TableColumn fx:id="potenciaCol"
+├── TextField fx:id="nomeField"
+├── TextField fx:id="localizacaoField"
+├── TextField fx:id="tipoCombustivelField"
+├── TextField fx:id="potenciaField"
+├── Button fx:id="adicionarButton", onAction="#onAdicionarButtonAction"
+
+
+---
+
+package view;
+
+import javafx.beans.property.*;
+
+public class GeradorView {
+    private SimpleIntegerProperty id;
+    private SimpleStringProperty nome;
+    private SimpleStringProperty localizacao;
+    private SimpleStringProperty tipoCombustivel;
+    private SimpleDoubleProperty potencia;
+
+    public GeradorView(int id, String nome, String localizacao, String tipoCombustivel, double potencia) {
+        this.id = new SimpleIntegerProperty(id);
+        this.nome = new SimpleStringProperty(nome);
+        this.localizacao = new SimpleStringProperty(localizacao);
+        this.tipoCombustivel = new SimpleStringProperty(tipoCombustivel);
+        this.potencia = new SimpleDoubleProperty(potencia);
+    }
+
+    public int getId() { return id.get(); }
+    public String getNome() { return nome.get(); }
+    public String getLocalizacao() { return localizacao.get(); }
+    public String getTipoCombustivel() { return tipoCombustivel.get(); }
+    public double getPotencia() { return potencia.get(); }
+}
+
+
+---
+
+package controller;
+
+import javafx.fxml.*;
+import javafx.scene.control.*;
+import javafx.collections.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.*;
+import view.*;
+
+import java.net.URL;
+import java.util.*;
+
+public class GeradorController implements Initializable {
+
+    @FXML private TableView<GeradorView> tabela;
+    @FXML private TableColumn<GeradorView, Integer> idCol;
+    @FXML private TableColumn<GeradorView, String> nomeCol;
+    @FXML private TableColumn<GeradorView, String> localizacaoCol;
+    @FXML private TableColumn<GeradorView, String> tipoCombustivelCol;
+    @FXML private TableColumn<GeradorView, Double> potenciaCol;
+
+    @FXML private TextField nomeField, localizacaoField, tipoCombustivelField, potenciaField;
+    @FXML private Button adicionarButton;
+
+    private GeradorRepositorio geradorRepo;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            geradorRepo = new GeradorRepositorio(new Database("equipamentos.sqlite"));
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Erro banco: " + e.getMessage()).show();
+        }
+
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nomeCol.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        localizacaoCol.setCellValueFactory(new PropertyValueFactory<>("localizacao"));
+        tipoCombustivelCol.setCellValueFactory(new PropertyValueFactory<>("tipoCombustivel"));
+        potenciaCol.setCellValueFactory(new PropertyValueFactory<>("potencia"));
+
+        tabela.setItems(loadAll());
+    }
+
+    private ObservableList<GeradorView> loadAll() {
+        ObservableList<GeradorView> lista = FXCollections.observableArrayList();
+        try {
+            for (Gerador g : geradorRepo.loadAll()) {
+                lista.add(new GeradorView(
+                    g.getId(), g.getNome(), g.getLocalizacao(),
+                    g.getTipoCombustivel(), g.getPotencia()
+                ));
+            }
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Erro ao carregar: " + e.getMessage()).show();
+        }
+        return lista;
+    }
+
+    @FXML
+    public void onAdicionarButtonAction() {
+        try {
+            Gerador g = new Gerador();
+            g.setNome(nomeField.getText());
+            g.setLocalizacao(localizacaoField.getText());
+            g.setTipoCombustivel(tipoCombustivelField.getText());
+            g.setPotencia(Double.parseDouble(potenciaField.getText()));
+
+            geradorRepo.create(g);
+            tabela.getItems().add(new GeradorView(
+                g.getId(), g.getNome(), g.getLocalizacao(),
+                g.getTipoCombustivel(), g.getPotencia()
+            ));
+
+            nomeField.clear();
+            localizacaoField.clear();
+            tipoCombustivelField.clear();
+            potenciaField.clear();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Erro ao adicionar: " + e.getMessage()).show();
+        }
+    }
+}
