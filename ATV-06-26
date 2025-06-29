@@ -1,3 +1,124 @@
+// Adicionando as operações de Atualizar e Deletar
+
+@DatabaseTable(tableName = "gerador")
+public class Gerador extends Equipamento {
+
+    @DatabaseField
+    private String tipoCombustivel;
+
+    @DatabaseField
+    private double potencia;
+
+    // Getters e setters herdados + específicos
+}
+
+
+
+
+
+public class GeradorRepositorio {
+    private static Database database;
+    private static Dao<Gerador, Integer> dao;
+
+    public GeradorRepositorio(Database database) {
+        try {
+            GeradorRepositorio.database = database;
+            dao = DaoManager.createDao(database.getConnection(), Gerador.class);
+            TableUtils.createTableIfNotExists(database.getConnection(), Gerador.class);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public Gerador create(Gerador g) throws SQLException {
+        dao.create(g);
+        return g;
+    }
+
+    public void update(Gerador g) throws SQLException {
+        dao.update(g);
+    }
+
+    public void delete(Gerador g) throws SQLException {
+        dao.delete(g);
+    }
+
+    public List<Gerador> loadAll() throws SQLException {
+        return dao.queryForAll();
+    }
+
+    public Gerador getById(int id) throws SQLException {
+        return dao.queryForId(id);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+public void onAtualizarButtonAction() {
+    GeradorView selecionado = tabela.getSelectionModel().getSelectedItem();
+    if (selecionado == null) {
+        new Alert(Alert.AlertType.WARNING, "Selecione um gerador para atualizar.").show();
+        return;
+    }
+    try {
+        Gerador g = geradorRepo.getById(selecionado.getId());
+        g.setNome(nomeField.getText());
+        g.setLocalizacao(localizacaoField.getText());
+        g.setTipoCombustivel(tipoCombustivelField.getText());
+        g.setPotencia(Double.parseDouble(potenciaField.getText()));
+
+        geradorRepo.update(g);
+
+        tabela.getItems().set(tabela.getSelectionModel().getSelectedIndex(),
+            new GeradorView(g.getId(), g.getNome(), g.getLocalizacao(), g.getTipoCombustivel(), g.getPotencia()));
+
+    } catch (Exception e) {
+        new Alert(Alert.AlertType.ERROR, "Erro ao atualizar: " + e.getMessage()).show();
+    }
+}
+
+public void onDeletarButtonAction() {
+    GeradorView selecionado = tabela.getSelectionModel().getSelectedItem();
+    if (selecionado == null) {
+        new Alert(Alert.AlertType.WARNING, "Selecione um gerador para deletar.").show();
+        return;
+    }
+    try {
+        Gerador g = geradorRepo.getById(selecionado.getId());
+        geradorRepo.delete(g);
+        tabela.getItems().remove(selecionado);
+        limparCampos();
+    } catch (Exception e) {
+        new Alert(Alert.AlertType.ERROR, "Erro ao deletar: " + e.getMessage()).show();
+    }
+}
+
+
+
+tabela.getSelectionModel().selectedItemProperty().addListener((obs, old, novo) -> {
+    if (novo != null) {
+        nomeField.setText(novo.getNome());
+        localizacaoField.setText(novo.getLocalizacao());
+        tipoCombustivelField.setText(novo.getTipoCombustivel());
+        potenciaField.setText(String.valueOf(novo.getPotencia()));
+    }
+});
+
+
+
+
+---
+
+// Listar os registros do banco de dados em uma TableView
+//   Criar um novo registro no banco de dados a partir de dados fornecidos através de um formulário preenchido pelo usuário
+
 @DatabaseTable(tableName = "gerador")
 public class Gerador extends Equipamento {
     @DatabaseField
