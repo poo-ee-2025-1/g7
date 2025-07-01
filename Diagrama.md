@@ -136,9 +136,9 @@ Sistema --> Usuário : equipamentos defeituosos e funcionais
 ---
 ---
 
-# **Realizado Etapa 1**
+# **Realizado Etapa 2**
 
----
+
 
 # Diagramas de classes
 
@@ -248,13 +248,11 @@ class UtilEquipamentos {
   + simularTodosEquipamentos(lista: List<Equipamento>, dataSimulada: LocalDate)
 }
 
-' Heranças
 Equipamento <|-- Gerador
 Equipamento <|-- MotorElétrico
 Equipamento <|-- Transformador
 Equipamento <|-- PainelEletrico
 
-' Implementa interface
 Equipamento ..|> Monitoravel
 
 @enduml
@@ -262,6 +260,8 @@ Equipamento ..|> Monitoravel
 ```
 
 ![Diagrama de classes](https://uml.planttext.com/plantuml/png/pLRDJXin4BuZvHrywqOqIBqYXAYQj4GY5H89zydk95Zosi7sHfLAdwQ7gW_G9yYBTRpERknTGu5B4OUmyutdv_iyjY-C1MshKWoE1aTSMjGho97DbEHMQTYYODy7HumTCyFBIe3-3E8Eig6tvKfhtFtQ_LID1R_n9TTJkMej6WrIZkOp3FCXAy32JMqfu9HTgHp462oIxmzN42oDrP1RbWimXatkAxw14gLLZ9SRWUvVqozsnAWhotD63R6DLalo1DD3SYKjJCVUVcCrbsjc-KP5XWukLOdUq1RBN1DJIO45r5nut6NOyW8MbelkYafONi8jQhxYUNVHIkDzXJBdC0DPMPI4_q7ZwGieo5mjf_l2tlUgYEcigVUjhz5-yfrdmrENCK8rhhaZNL_lUSk67RoMiq5DrWi-LrH3W0Sv2FLPVT6jyIjraZ3FIOo4UTpfrBcqlRPUYpx72SV-VjtkL-W3-uVjlT-zSTJ7Dx5RSjZ3lM5feSwCjFRKp2N1VqwI7w0lgA5GkfcIGbKa4hkZsJ4BGqXa5hpa5YyTs7SVSuYC6ekgxkqssFB7JS8NRrNIxxAjoidcq-n5Y42fjk0-6vz3XAj30uaG8KenbF_kHEblZxwAJnnmhphql5GpHKVQHEn-4sUvwYXciTmGixRIyD5M81u3fmLsGAZgisE6vZdonKMyHiNvePY41Y7gT0o--tBEEtqz7S-xT8BMnZSZyLo3D2kboyHC5cZMO2pMXsaIkKQTavHTzHzHCihr6Y77OK49wcFS3LHZUJDyNmENA2O2ev5QAYKG9Diev3HEUUMZF8VKEE2BMVr_JBWMWfU4QTvuxTqtLuKoeKScw5NW0jBFMG2SnqKyVvqdw8bAtx5BcbgwVjtr4xxypXv6e-PYII3ncPLmY4OXWSUg-bAcpMiJMFj8ZfUUd3oSXozHj-u2PR5_Mhk_lm00)
+
+## Código 2
 
 ---
 
@@ -313,11 +313,13 @@ package "Sistema de Gerenciamento de Equipamentos" {
 
 ![Diagrama de casos de uso](https://uml.planttext.com/plantuml/png/ZLJ1JgH04BsJy0-LkVi36pCncSnkF9WOnzshAPiQhDXqprOtYQl-ZGVZUUCNy6CM320Weq92eDvxNQ-gkZa94IMMXKqJIzi8qODmVXCXOo4JsRiq2RViTYXOm0xDBUQqYVyiGOsZoosbIPgWYLxWidenZesl8oqN5XiEaGg4ZE0N2Jd3M93JH1fO_orvj_yC2tX84z1h_om36GogNs668GhAaBq03F1xTTM3NqZFlFeRY9hlWsprYTc8tqOEAYu5NTXwAIQwKVoW-XpPaOMrhLwYQFy62-oXONM30k3ew74vquQHvyz98uEVKrkNCvn9ONz8UCkcRZkwCfAhdgkdlgWUdHtPXelIgl8dsXli96rmGbtVyJKBdBh6lkPufT0fzjXqxJBNt08hBq8ZJtM4ym-22meKvpTU2qqhvr2YvNlLN935MFqNRZRwkVXhgwSWlEiLzeeEkz2T7-tnt1YcyAIJKtXayIFOv-zd_3wtbjGDumSS7xCpjinekJnCRmVoJNRNyuPFTxfDifgU9YVwrloHwliD)
 
+## Código 2
+
 ---
 
 # Diagramas de sequência
 
-## Código
+## Código 1
 
 ```
 @startuml
@@ -347,6 +349,8 @@ Sistema --> Técnico : mostrarResultadoSimulação(resultadoSimulação)
 
 
 ![Diagrama de sequência](https://uml.planttext.com/plantuml/png/jPCzQiD048LxWUumkB8Xnhr1mP0Oay8GOfD-MAt8mluuixCfSfqKmUVGnJB-KRmoAfmYdLOxxvltdj0YCX8dPyi25GU2RRjNtgXG5ZkvCChiq3DiJ6JjiFzo-PxamMdFLzEZTH3KqhPx9a7135QQi1Rw3BQ4FZQ1tFdyZCPhEmACEUyXU4Nwm2sBge9NJQOn2jllzYj0hS6XJwpzwOoSq49L7OOx-p2zxqp376AmuasIza1ZVLduz3WfYquWsioBw6rGQCqdKlRwHdMNH2WVv-MqpjoFHJaqFkq581sJPQci5o3RATE_qUVWGcH2UXbKZOTXatFN6-EIlJJTe7r3Q18dmjiwpW3zZkwWHiRJTOt_ttSyRhhwvbSM_b1zbklculCkXa3YOA5zVVp_ok87)
+
+## Código 2
 
 
 
