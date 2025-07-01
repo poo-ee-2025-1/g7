@@ -1,3 +1,5 @@
+# **Realizado Etapa 1**
+
 # Diagrama de classes
 
 ## Código
@@ -129,3 +131,23 @@ Sistema --> Usuário : equipamentos defeituosos e funcionais
 ## Imagem do Diagrama de Sequência para um caso de uso:
 
 ![Diagrama de sequência](https://img.plantuml.biz/plantuml/png/ZLB1RSCm3Fm7o0vSm0lq4GHPeUW0YaGN16pH5QMWwnHvzDLNHz1YeMeujO2eBlWHn3loZkHHeWanZSD-LyBOo05U9EMFGBpVJPeaIvFn4Pv98ewc_ZmPRtdcBYpe3WiMdi0QPoG61eU0unHGjCAIxXHwfwsms6DCnd6xhF2W4bHxtU0jgQmHVMHPTJdCCfLsJcALK-FcP5VLNoF0aKpiyzS5IPhYyPtE5FuY_cj4Mmu41xJ4ldQnQUANLwRQij32jvHVC51FPQ92kh3ycQ_yMFKz3KPV0pYTplOM79bNdxz5puqVKBPjw0hqbhGvIs53d_oFgNaT9OxedPx_3G00)
+
+---
+---
+---
+
+# **Realizado Etapa 1**
+
+# Diagramas de classes
+
+# Diagramas de casos de uso
+
+# Diagramas de sequência
+
+![Diagrama de sequência](https://uml.planttext.com/plantuml/png/jPCzQiD048LxWUumkB8Xnhr1mP0Oay8GOfD-MAt8mluuixCfSfqKmUVGnJB-KRmoAfmYdLOxxvltdj0YCX8dPyi25GU2RRjNtgXG5ZkvCChiq3DiJ6JjiFzo-PxamMdFLzEZTH3KqhPx9a7135QQi1Rw3BQ4FZQ1tFdyZCPhEmACEUyXU4Nwm2sBge9NJQOn2jllzYj0hS6XJwpzwOoSq49L7OOx-p2zxqp376AmuasIza1ZVLduz3WfYquWsioBw6rGQCqdKlRwHdMNH2WVv-MqpjoFHJaqFkq581sJPQci5o3RATE_qUVWGcH2UXbKZOTXatFN6-EIlJJTe7r3Q18dmjiwpW3zZkwWHiRJTOt_ttSyRhhwvbSM_b1zbklculCkXa3YOA5zVVp_ok87)
+
+
+
+
+
+
