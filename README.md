@@ -103,7 +103,8 @@ Estudos como os de **Zhu et al. (2019)** mostram que algoritmos podem prever fal
 
 Crescimento do Mercado Global de Manutenção Preditiva.
 
-![](![TABELA](https://github.com/user-attachments/assets/48112798-0963-4f45-b87a-4051605f49b6))
+![](![TABELA](![TABELA](https://github.com/user-attachments/assets/a4a1f269-b025-4238-ab68-9b6102d11df3)
+))
 
 
 ## 4. Aplicação no Projeto
