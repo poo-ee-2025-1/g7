@@ -116,7 +116,7 @@ Crescimento do Mercado Global de Manutenção Preditiva.
 
 Este projeto busca aplicar esses conceitos de forma adaptada e acessível, voltada a pequenas e médias empresas, condomínios ou instalações industriais. Através da **Programação Orientada a Objetos em Java**, está sendo desenvolvido um sistema que premite:
 
- -Cadastro e controle de equipamentos elétricos, como motores, geradores, transformadores e painéis elétricos, com dados técnicos como vida útil, tipo e data de instalação.
+- Cadastro e controle de equipamentos elétricos, como motores, geradores, transformadores e painéis elétricos, com dados técnicos como vida útil, tipo e data de instalação.
 
 - Verificação automatizada de falhas com base em critérios específicos de cada equipamento (ex.: temperatura elevada, desgaste excessivo, horas de uso, acúmulo de poeira).
 
