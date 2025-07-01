@@ -2,6 +2,10 @@
 Projeto do Grupo 7
 
 ---
+---
+---
+
+# **Realizado Etapa 1**
 
 # Seção 1 – Introdução
 
@@ -64,6 +68,10 @@ Criar um sistema de software, utilizando os princípios da Programação Orienta
 * Pasta Diagrama.md
 
 ---
+---
+---
+
+# **Realizado Etapa 2**
 
 # Gerenciamento de Manutenção de Equipamentos Elétricos com Apoio de Sistemas Digitais
 
@@ -93,15 +101,24 @@ Com tecnologias emergentes como **IoT**, **Inteligência Artificial** e **Machin
 
 Estudos como os de **Zhu et al. (2019)** mostram que algoritmos podem prever falhas ocultas em padrões de operação. **Arifidi et al. (2021)** e **Kane et al. (2022)** demonstram aplicações práticas dessas tecnologias em transformadores, fontes renováveis e painéis de distribuição — otimizando tempo de resposta e reduzindo falhas catastróficas.
 
+Crescimento do Mercado Global de Manutenção Preditiva.
+
+![](![TABELA](https://github.com/user-attachments/assets/48112798-0963-4f45-b87a-4051605f49b6))
+
+
 ## 4. Aplicação no Projeto
 
-Este projeto busca aplicar esses conceitos de forma adaptada e acessível, voltada a pequenas e médias empresas, condomínios ou instalações industriais. Através da **Programação Orientada a Objetos em Java**, está sendo desenvolvido um sistema que:
+Este projeto busca aplicar esses conceitos de forma adaptada e acessível, voltada a pequenas e médias empresas, condomínios ou instalações industriais. Através da **Programação Orientada a Objetos em Java**, está sendo desenvolvido um sistema que premite:
 
-- Permite o cadastro de equipamentos elétricos com dados técnicos;
-- Agenda manutenções preventivas e registra corretivas;
-- Emite alertas automáticos com base em datas ou tempo de uso;
-- Gera relatórios históricos por período ou tipo de serviço;
-- Pode futuramente integrar sensores ou algoritmos de manutenção preditiva.
+ -Cadastro e controle de equipamentos elétricos, como motores, geradores, transformadores e painéis elétricos, com dados técnicos como vida útil, tipo e data de instalação.
+
+- Verificação automatizada de falhas com base em critérios específicos de cada equipamento (ex.: temperatura elevada, desgaste excessivo, horas de uso, acúmulo de poeira).
+
+- Simulações futuras de falhas, permitindo prever o comportamento do equipamento em uma data futura.
+
+- Emissão de alertas e mensagens de recomendação quando problemas são detectados.
+
+- Reset de dados dos equipamentos para restaurar seu estado inicial.
 
 Trata-se de uma solução funcional e educativa, semelhante a um **CMMS simplificado**, mas com estrutura pronta para expansão conforme os recursos do usuário.
 
