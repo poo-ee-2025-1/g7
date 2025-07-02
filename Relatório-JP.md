@@ -37,6 +37,9 @@
 
  <br>
 
+![](https://github.com/poo-ee-2025-1/g7/blob/parte-Jo%C3%A3o-Pedro-Caix%C3%AAta/TesteClasses.png?raw=true)
+
+<br>
  
 
  #### Objetivos: Meu objetivo ao longo de todo o processo de programação foi **tentar utilizar o máximo de conceitos aprendidos ao longo do semestre letivo**, dessa forma, reforçando meu aprendizado ao longo do tempo. Meu código possui, portanto, ideias como **Herança, Polimorfismo, Encapsulamento, Controle de situações, entre outros**.
