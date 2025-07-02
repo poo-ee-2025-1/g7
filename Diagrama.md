@@ -147,121 +147,93 @@ Sistema --> Usuário : equipamentos defeituosos e funcionais
 ```
 @startuml
 
-interface Monitoravel {
-  + simularFalha()
-  + correção()
-  + exibirInfo()
-  + resetar()
-  + simularFalha1(dataSimulada: LocalDate)
-}
+skinparam classAttributeIconSize 0
 
-abstract class Equipamento implements Monitoravel {
-  - static int problemas
-  - static int contaID
-  - String tipo
-  - String ID
-  - String nome
-  - LocalDate dataInstalação
-  - int vidaUtil
-  - LocalDate ultimaVerificação
-  - int frequenciaManutenções
-  + Equipamento(nome: String, dataInstalação: LocalDate)
-  + static getContaID(): int
-  + static registrarProblema()
-  + static resetarProblemas()
-  + static getTotalProblemas(): int
-  + getID(): String
-  + getNome(): String
-  + getTipo(): String
-  + getDataInstalação(): LocalDate
-  + getUltimaVerificação(): LocalDate
-  + exibirInfo()
-  + verificarManutenção()
-  + simularVerificação(dataSimulada: LocalDate)
-  + abstract correção()
-  + abstract resetar()
-  + abstract simularFalha()
-  + abstract simularFalha1(dataSimulada: LocalDate)
-}
-
-class Gerador {
-  - double horasUsado
-  - double limiteHoras
-  - double horasDia
-  - double reduçãoVidaUtil
-  + Gerador(nome: String, dataInstalação: LocalDate)
-  + getHorasUsado(): double
-  + setHorasUsado(novaHora: double)
-  + getLimiteHoras(): double
-  + setLimiteHoras(novoLimite: double)
-  + exibirInfo()
-  + correção()
-  + resetar()
-  + simularFalha()
-  + simularFalha1(dataSimulada: LocalDate)
+class Equipamento {
+  - nome : String
+  - tipo : String
+  - dataInstalação : LocalDate
+  - vidaUtil : double
+  - frequenciaManutenções : int
+  - ultimaVerificação : LocalDate
+  + verificarManutenção() : void
+  + simularVerificação(data: LocalDate) : void
+  + exibirInfo() : void
+  + resetar() : void
+  + correção() : void
+  + simularFalha() : void
+  + simularFalha1(data: LocalDate) : void
+  + getNome() : String
+  + getTipo() : String
+  + getDataInstalacao() : LocalDate
+  + getVidaUtil() : double
+  + getFrequenciaManutencao() : int
+  + getUltimaVerificacao() : LocalDate
+  + registrarProblema() : void
+  + getTotalProblemas() : int
 }
 
 class MotorElétrico {
-  - double temperaturaAtual
-  - double temperaturaIdeal
-  - double aumentoMes
-  - double reduçãoVidaUtil
-  + MotorElétrico(nome: String, dataInstalação: LocalDate)
-  + getTemperatura(): double
-  + setTemperatura(novaTemperatura: double)
-  + getTemperaturaIdeal(): double
-  + setTemperaturaIdeal(novaTemperaturaIdeal: double)
-  + exibirInfo()
-  + correção()
-  + resetar()
-  + simularFalha()
-  + simularFalha1(dataSimulada: LocalDate)
+  - temperaturaAtual : double
+  - temperaturaIdeal : double
+  - aumentoMes : double
+  - reduçãoVidaUtil : double
+}
+
+class Gerador {
+  - horasUsado : double
+  - limiteHoras : double
+  - horasDia : double
+  - reduçãoVidaUtil : double
 }
 
 class Transformador {
-  - double desgasteTotal
-  - double desgastePercentual
-  - double reduçãoVidaUtil
-  + Transformador(nome: String, dataInstalação: LocalDate)
-  + getDesgasteTotal(): double
-  + setDesgasteTotal(novoDesgaste: double)
-  + exibirInfo()
-  + correção()
-  + resetar()
-  + simularFalha()
-  + simularFalha1(dataSimulada: LocalDate)
+  - desgasteTotal : double
+  - desgastePercentual : double
+  - reduçãoVidaUtil : double
 }
 
 class PainelEletrico {
-  - boolean poeiraAcumulada
-  - double reduçãoVidaUtil
-  + PainelEletrico(nome: String, dataInstalação: LocalDate)
-  + exibirInfo()
-  + correção()
-  + resetar()
-  + simularFalha()
-  + simularFalha1(dataSimulada: LocalDate)
+  - poeiraAcumulada : boolean
+  - reduçãoVidaUtil : double
 }
 
-class UtilEquipamentos {
-  + verificarTodosEquipamentos(lista: List<Equipamento>)
-  + simularTodosEquipamentos(lista: List<Equipamento>, dataSimulada: LocalDate)
+MotorElétrico --|> Equipamento
+Gerador --|> Equipamento
+Transformador --|> Equipamento
+PainelEletrico --|> Equipamento
+
+class Usuario {
+  - nome1 : String
+  - cargo : String
+  - id : int
+  - email : String
+  - senha : String
+  + autenticar(email: String, senha: String) : boolean
+  + receberAlerta(alerta: Alerta) : void
+  + getNome() : String
+  + getCargo() : String
+  + getId() : int
 }
 
-Equipamento <|-- Gerador
-Equipamento <|-- MotorElétrico
-Equipamento <|-- Transformador
-Equipamento <|-- PainelEletrico
+class Alerta {
+  - mensagem : String
+  - dataAlerta : LocalDate
+  - equipamento : Equipamento
+  + getMensagem() : String
+}
 
-Equipamento ..|> Monitoravel
+Alerta --> Equipamento : equipamento
+Usuario --> Alerta : receberAlerta()
 
 @enduml
 
+
 ```
 
-![Diagrama de classes](https://uml.planttext.com/plantuml/png/pLRDJXin4BuZvHrywqOqIBqYXAYQj4GY5H89zydk95Zosi7sHfLAdwQ7gW_G9yYBTRpERknTGu5B4OUmyutdv_iyjY-C1MshKWoE1aTSMjGho97DbEHMQTYYODy7HumTCyFBIe3-3E8Eig6tvKfhtFtQ_LID1R_n9TTJkMej6WrIZkOp3FCXAy32JMqfu9HTgHp462oIxmzN42oDrP1RbWimXatkAxw14gLLZ9SRWUvVqozsnAWhotD63R6DLalo1DD3SYKjJCVUVcCrbsjc-KP5XWukLOdUq1RBN1DJIO45r5nut6NOyW8MbelkYafONi8jQhxYUNVHIkDzXJBdC0DPMPI4_q7ZwGieo5mjf_l2tlUgYEcigVUjhz5-yfrdmrENCK8rhhaZNL_lUSk67RoMiq5DrWi-LrH3W0Sv2FLPVT6jyIjraZ3FIOo4UTpfrBcqlRPUYpx72SV-VjtkL-W3-uVjlT-zSTJ7Dx5RSjZ3lM5feSwCjFRKp2N1VqwI7w0lgA5GkfcIGbKa4hkZsJ4BGqXa5hpa5YyTs7SVSuYC6ekgxkqssFB7JS8NRrNIxxAjoidcq-n5Y42fjk0-6vz3XAj30uaG8KenbF_kHEblZxwAJnnmhphql5GpHKVQHEn-4sUvwYXciTmGixRIyD5M81u3fmLsGAZgisE6vZdonKMyHiNvePY41Y7gT0o--tBEEtqz7S-xT8BMnZSZyLo3D2kboyHC5cZMO2pMXsaIkKQTavHTzHzHCihr6Y77OK49wcFS3LHZUJDyNmENA2O2ev5QAYKG9Diev3HEUUMZF8VKEE2BMVr_JBWMWfU4QTvuxTqtLuKoeKScw5NW0jBFMG2SnqKyVvqdw8bAtx5BcbgwVjtr4xxypXv6e-PYII3ncPLmY4OXWSUg-bAcpMiJMFj8ZfUUd3oSXozHj-u2PR5_Mhk_lm00)
+![Diagrama de classes](https://cdn-0.plantuml.com/plantuml/png/bLNDJXj13BxlKyoDe3PIkNAeG11AfAP2Wd1tTfrWTNw2nnDLRNcQ7ge-G9-05-lCCajdab3HKpJ-Fdzs_ECzyG8imUYcEL0JBwITLnlo0SWt_ZFPDJ0OrMhm_bI4QH44fwspr_GLrRlaTPOmz6hDP5jQ9yUUhYRt8JuDMd7gMwFKM5bdK1shQudKLMyHMhlQqe70r7e13Oy_7tyazADhGP-3O4_OK0Tp8Hs1peM5Vh8k6Uy3nWHW1ZO8skZy6tqaaPMU4RIGWLjaMbAxL_kDscIK1v746Xr6tiPHrrCycQ21AvrHIhhGgXpm2os8ftQv9SJeKO1hO-kOyUMe5w3lu6Naw9-9h50-EOF9VIXuDj_4Bkmnd_zjHGk9K2WFdDlSZOJcVWpGnNPB1X6oCd3cLLFsHs5SaHS6lc8NvKrPW9o_4z03wfzZFAJnl0wBVXnn6CkP4ySJ_VXBcDfXCWND6XaaC9nAW6guAdJQuJOAeP_n6VhQpjY5lfMtEnFxqEHaFY13vpXdSUSO_Dn7IwsaoP3WPK9B83kS4_n_u1i6wvUEJH6-Gxy2BvZAMVYKq1LoYxQgqAj3NW5Pr1EDPU7N3YdMl0rfYZk8RWldD89zXUo1kaI6kAJGR3LrFFx-lhm_JQxpBb3NOGUkSzx5d--Vcli0J2x_r_mgxjvHVUPQu9MhJTGLrmeDaAvnZ_OEwYM5j5QI3jQeTnZ0jq_auNbObJLjL8iBv5EDB322z1EvJyzNdeopbFyU-xGhrYztFYldOXYq7bPeTiz-fcqVV2o-8yTLzNFCMLOiqqd1izvuNFKiSh3G63gLM4C2MmKwR9eJj5twIlu1)
 
-## Código 2
+
 
 ---
 
@@ -273,47 +245,47 @@ Equipamento ..|> Monitoravel
 @startuml
 left to right direction
 skinparam packageStyle rectangle
+skinparam actorStyle awesome
 
-actor Técnico
+actor "Usuário Comum" as Usuario
+actor "Administrador" as Admin
+actor "Sistema" as Sistema
 
-package "Sistema de Gerenciamento de Equipamentos" {
-    
-    usecase "Cadastrar Equipamento" as UC_Cadastrar
-    
-    usecase "Cadastrar Motor" as UC_CadMotor
-    usecase "Cadastrar Gerador" as UC_CadGerador
-    usecase "Cadastrar Transformador" as UC_CadTransformador
-    usecase "Cadastrar Painel Elétrico" as UC_CadPainel
-    
-    UC_CadMotor --|> UC_Cadastrar
-    UC_CadGerador --|> UC_Cadastrar
-    UC_CadTransformador --|> UC_Cadastrar
-    UC_CadPainel --|> UC_Cadastrar
+rectangle "Sistema de Gerenciamento de Equipamentos Elétricos" {
 
-    usecase "Verificar Manutenção" as UC_Verificar
-    
-    usecase "Simular Falha" as UC_Simular
-    usecase "Exibir Informações" as UC_Exibir
-    usecase "Sugerir Correção" as UC_Corrigir
-    usecase "Resetar Equipamento" as UC_Resetar
-    usecase "Visualizar Relatório de Problemas" as UC_Relatorio
-    
-    Técnico --> UC_Cadastrar
-    Técnico --> UC_Verificar
-    Técnico --> UC_Resetar
-    Técnico --> UC_Relatorio
+  usecase "Autenticar no Sistema" as UC1
+  usecase "Cadastrar Equipamento" as UC2
+  usecase "Simular Falha" as UC3
+  usecase "Receber Alerta" as UC4
+  usecase "Exibir Informações" as UC5
+  usecase "Gerar Relatório" as UC6
+  usecase "Resetar Equipamento" as UC7
+}
 
-    UC_Verificar --> UC_Simular : <<include>>
-    UC_Verificar --> UC_Exibir : <<include>>
-    UC_Verificar --> UC_Corrigir : <<extend>>
+Usuario --> UC1
+Usuario --> UC3
+Usuario --> UC4
+Usuario --> UC5
+
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC4
+Admin --> UC5
+Admin --> UC6
+Admin --> UC7
+
+Sistema --> UC4 : envia alertas
+UC3 --> UC4 : gera
 
 @enduml
 
+
 ```
 
-![Diagrama de casos de uso](https://uml.planttext.com/plantuml/png/ZLJ1JgH04BsJy0-LkVi36pCncSnkF9WOnzshAPiQhDXqprOtYQl-ZGVZUUCNy6CM320Weq92eDvxNQ-gkZa94IMMXKqJIzi8qODmVXCXOo4JsRiq2RViTYXOm0xDBUQqYVyiGOsZoosbIPgWYLxWidenZesl8oqN5XiEaGg4ZE0N2Jd3M93JH1fO_orvj_yC2tX84z1h_om36GogNs668GhAaBq03F1xTTM3NqZFlFeRY9hlWsprYTc8tqOEAYu5NTXwAIQwKVoW-XpPaOMrhLwYQFy62-oXONM30k3ew74vquQHvyz98uEVKrkNCvn9ONz8UCkcRZkwCfAhdgkdlgWUdHtPXelIgl8dsXli96rmGbtVyJKBdBh6lkPufT0fzjXqxJBNt08hBq8ZJtM4ym-22meKvpTU2qqhvr2YvNlLN935MFqNRZRwkVXhgwSWlEiLzeeEkz2T7-tnt1YcyAIJKtXayIFOv-zd_3wtbjGDumSS7xCpjinekJnCRmVoJNRNyuPFTxfDifgU9YVwrloHwliD)
+![Diagrama de casos de uso](https://cdn-0.plantuml.com/plantuml/png/RP9B3jem48RtSueHUnRb0L8N5GZHgbiG1nYS8LZuGSTE7wfwcAwghgkU81Uh4n9ae-xopV_P7dko2P4aDjQ0uKl4w55qVOrOQM4LjNSGRjhTISZYdTIDQZx6RuQnYydLXZE1LFJoYEaB1syPeA_Xv1IQzgTeZpjl6pj12fXAb2gZiQsiTZf4eSfBB_ILCJwcY2trmV0Dy6pYcMF5-865dT9asKNV5VQV6dr_OC2zQNz7qSg72Nu7G6m2AmgSEcXYKhGYGUSnF_2qUvEBEwgeQrJodGTnbej7RHkJjFTahkDEyrmuiE8p2suDInoDHMxil-gp5lpeBbuijR_Qlnm6RvbxwT8aU613iVsJddLmLkLfWUD_krx33u1X83YTlkjlNFByXHSll0Je1pOkBsXMqBoWHK7BWbO5hG76CGzByIso-wm9gN_006dpBAjP2633hkh-SFW7)
 
-## Código 2
+
 
 ---
 
@@ -323,34 +295,27 @@ package "Sistema de Gerenciamento de Equipamentos" {
 
 ```
 @startuml
-actor Técnico
-participant Sistema
-participant Equipamento
-participant "MotorElétrico / Gerador / Transformador / Painel" as EquipamentoConcreto
+actor Usuario
+participant "Sistema" as Sistema
+participant "Equipamento" as Equipamento
+participant "Alerta" as Alerta
 
-== Verificação de manutenção atual ==
+Usuario -> Sistema : solicitarSimulacaoFalha(equipamento)
+Sistema -> Equipamento : simularFalha()
 
-Técnico -> Sistema : solicitarVerificação(equipamentoID)
-Sistema -> Equipamento : localizarEquipamento(equipamentoID)
-Sistema -> EquipamentoConcreto : verificarManutenção()
-EquipamentoConcreto --> Sistema : resultadoVerificação
-Sistema --> Técnico : mostrarResultadoVerificação(resultadoVerificação)
+alt falha detectada
+    Sistema -> Alerta : criarAlerta(mensagem, equipamento)
+    Sistema -> Usuario : receberAlerta(alerta)
+end
 
-== Simulação de falha futura ==
-
-Técnico -> Sistema : solicitarSimulação(equipamentoID, dataSimulada)
-Sistema -> Equipamento : localizarEquipamento(equipamentoID)
-Sistema -> EquipamentoConcreto : simularVerificação(dataSimulada)
-EquipamentoConcreto --> Sistema : resultadoSimulação
-Sistema --> Técnico : mostrarResultadoSimulação(resultadoSimulação)
 @enduml
 
 ```
 
 
-![Diagrama de sequência](https://uml.planttext.com/plantuml/png/jPCzQiD048LxWUumkB8Xnhr1mP0Oay8GOfD-MAt8mluuixCfSfqKmUVGnJB-KRmoAfmYdLOxxvltdj0YCX8dPyi25GU2RRjNtgXG5ZkvCChiq3DiJ6JjiFzo-PxamMdFLzEZTH3KqhPx9a7135QQi1Rw3BQ4FZQ1tFdyZCPhEmACEUyXU4Nwm2sBge9NJQOn2jllzYj0hS6XJwpzwOoSq49L7OOx-p2zxqp376AmuasIza1ZVLduz3WfYquWsioBw6rGQCqdKlRwHdMNH2WVv-MqpjoFHJaqFkq581sJPQci5o3RATE_qUVWGcH2UXbKZOTXatFN6-EIlJJTe7r3Q18dmjiwpW3zZkwWHiRJTOt_ttSyRhhwvbSM_b1zbklculCkXa3YOA5zVVp_ok87)
+![Diagrama de sequência](https://cdn-0.plantuml.com/plantuml/png/LP11JWCn34NtFeNLLKU22x10PG4Ng3Z09sCWKZ8fZkV-U2QDEiaYyPV--p_ofHhKrfm8mOhoPrsXiT0DQZ746nRZqpLMaumJe_9z7WtlVwjFMHOhk-cWH-DR4hKMr4QYUoC_l_PiVk5QaZC6lSQy9WIK3wHVdEKHF56tEtaetEWTqePCH4Z6tvlWMKo2OGQndqD0-uspGIEqgRFdLVn8VkAXTqJxofnL2V8bdSR-J2JBJ7JnUzloFm00)
 
-## Código 2
+
 
 
 
