@@ -48,6 +48,13 @@
 
  A fim de incrementar meu projeto e trazer uma ideia diferente que não foi abordada em nossas aulas eu pesquisei e trouxe a **manipulação de datas** como ferramenta no meu projeto. Para isso utilizei a biblioteca **java.time.LocalDate** e **java.time.temporal.ChronoUnit** que são bibliotecas que me permitiram utilizar datas e contas com passagem de tempo como variáveis para facilitar meus cálculos a respeito dos problemas dos equipamentos, uma vez que em meu programa o problema dos equipamentos se agrava com o passar do tempo. Portanto achei muito útil e prática a utilização desse conceito para dar um complemento maior ao meu trabalho.
 
+ <br>
+
+ ![](https://github.com/poo-ee-2025-1/g7/blob/parte-Jo%C3%A3o-Pedro-Caix%C3%AAta/TempoClasses.png?raw=true)
+
+ <br>
+ 
+
  #### Dificuldades: Em geral, tudo que eu planejei para o resultado final do meu projeto eu consegui desenvolver dentro do prazo. Entretanto eu tive uma ideia de **criar um gráfico** junto com meu código, de forma que ficasse mais fácil a visualização do crescimento dos problemas com o passar do tempo. Porém, devido ao tempo escasso ao final do semestre, não consegui colocar essa ideia em prática a tempo. 
 
 <br>
