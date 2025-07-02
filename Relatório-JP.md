@@ -22,6 +22,13 @@
 
  Criei uma classe abstrata chamada "**Equipamento**" que contém atributos padrões em qualquer equipamento, entre eles: o **Nome, ID, Tipo, Vida Útil e a Data de Instalação** por exemplo. Além disso criei métodos responsáveis por: **apresentar os dados atuais do equipamento, verificar se é necessária uma manutenção ou não e simular uma falha específica para cada equipamento**. Após isso, criei as sub-classes de Equipamento, sendo elas: **"Motor Elétrico", "Gerador", "Transformador" e "Painel Elétrico"**. Cada uma dessas possuindo atributos específicos que foram usados para criar um problema hipotético que deve ser analisado pelo programa. Criei também uma interface chamada "Monitorável" e uma classe à parte chamada "UtilEquipamentos" onde ambas apenas guardam métodos importantes para a execução do programa.
 
+ <br>
+
+ ![](https://github.com/poo-ee-2025-1/g7/blob/parte-Jo%C3%A3o-Pedro-Caix%C3%AAta/Classes.png?raw=true)
+
+ <br>
+ 
+
  #### Resumo do código: O usuário cadastra um equipamento e define seu nome e data de instalação ---> ele chama o método **verificarManutenção()** que calcula os problemas encontrados no intervalo de tempo entre a data de instalação e a data atual e devolve ao usuário quantos e quais problemas foram encontrados.
 
  <br>
