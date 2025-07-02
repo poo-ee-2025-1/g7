@@ -21,7 +21,7 @@
 
 # 3.⁠ ⁠⁠Contribuição além do atribuído: como ajudei a equipe; quais commits a mais, posts e documentos mais relevantes; como ajudei outros a resolverem seus problemas; etc.
 - Como fiquei responsável pela parte teórica e diagramas, acabei aprendendo um pouco masi que os outros sobre markdown, então algusn colegas me pediram ajuda com algumas coisas, como pular linhas (` <br> `), fazer caixas
-- (` ```  ``` `), etc.
+(` ```  ``` `), etc.
 - Como estava revisando parte das contribuições dos meu colegas alertei algumas correcoes, como quando estava fazendo os diagramas de classes percebi que tinham classes com atributos de mesmo nome.
 
 ---
