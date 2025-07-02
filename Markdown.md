@@ -20,7 +20,8 @@
 ---
 
 # 3.⁠ ⁠⁠Contribuição além do atribuído: como ajudei a equipe; quais commits a mais, posts e documentos mais relevantes; como ajudei outros a resolverem seus problemas; etc.
-- Como fiquei responsável pela parte teórica e diagramas, acabei aprendendo um pouco masi que os outros sobre markdown, então algusn colegas me pediram ajuda com algumas coisas, como pular linhas (<br>), fazer caixas (```  ```), etc.
+- Como fiquei responsável pela parte teórica e diagramas, acabei aprendendo um pouco masi que os outros sobre markdown, então algusn colegas me pediram ajuda com algumas coisas, como pular linhas ("<br>"), fazer caixas
+- ("```  ```"), etc.
 - Como estava revisando parte das contribuições dos meu colegas alertei algumas correcoes, como quando estava fazendo os diagramas de classes percebi que tinham classes com atributos de mesmo nome.
 
 ---
@@ -36,8 +37,6 @@ Também participei da **implementação das primeiras classes do sistema**, usan
 
 Embora eu **não tenha feito a parte teórica** sobre os equipamentos elétricos nem os textos sobre herança e polimorfismo, acompanhei o que meus colegas estavam desenvolvendo, e isso me ajudou a entender como tudo se conectava.
 
----
-
 Ao final, conseguimos entregar o projeto com tudo o que foi pedido: **código funcional, documentação organizada e o planejamento bem estruturado**. Essa experiência me mostrou como é importante dividir bem as tarefas, colaborar em equipe e ter organização em todas as etapas. Foi um processo em que aprendi bastante e que com certeza me deixou mais preparado para futuros projetos.
 
-
+---
