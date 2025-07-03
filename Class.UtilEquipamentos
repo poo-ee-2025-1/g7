@@ -1,0 +1,34 @@
+import java.util.List;
+
+
+
+public class UtilEquipamentos {
+    
+    //Método que realiza a verificação de manutenção em todos os equipamentos da lista
+    public static void verificarTodosEquipamentos(List<Equipamento>lista) {
+        if (lista == null || lista.isEmpty()) {
+            System.out.println("Nenhum equipamento para verificar.");
+            return;
+        }
+            
+        System.out.println("======= VERIFICAÇÃO DE TODOS OS EQUIPAMENTOS =======\n");
+        for (Equipamento eq : lista) {
+            eq.verificarManutenção();  // chama o método de verificação individual
+            System.out.println("--------------------------------------------\n");
+        }
+    }
+
+    //Método que simula uma verificação de manutenção em uma determinada data, para todos os equipamentos
+    public static void simularTodosEquipamentos(List<Equipamento>lista, java.time.LocalDate dataSimulada) {
+        if (lista == null || lista.isEmpty()) {
+            System.out.println("Nenhum equipamento para verificar.");
+            return;
+        }
+        
+        System.out.println("======= SIMULAÇÃO DE TODOS OS EQUIPAMENTOS =======\n");
+        for (Equipamento eq : lista) {
+            eq.simularVerificação(dataSimulada);  // chama o método de simulação individual
+            System.out.println("--------------------------------------------\n");
+        }
+    }
+}
