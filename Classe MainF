@@ -1,1 +1,57 @@
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
+public class MainF {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Lista de usuários cadastrados
+        List<Usuario> usuarios = new ArrayList<>();
+        usuarios.add(new Usuario("João Silva", "Técnico", 1, "joao@email.com", "1234"));
+        usuarios.add(new Usuario("Maria Lima", "Engenheira", 2, "maria@email.com", "abcd"));
+
+        // Tentativa de login
+        System.out.println("===== LOGIN =====");
+        System.out.print("Digite seu email: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Digite sua senha: ");
+        String senha = scanner.nextLine();
+
+        Usuario usuarioLogado = null;
+
+        // Verificar se usuário existe
+        for (Usuario u : usuarios) {
+            if (u.autenticar(email, senha)) {
+                usuarioLogado = u;
+                break;
+            }
+        }
+
+        if (usuarioLogado == null) {
+            System.out.println("\nFalha no login: email ou senha incorretos.");
+            scanner.close();
+            return;
+        }
+
+        System.out.println("\nLogin realizado com sucesso!");
+        System.out.println("Bem-vindo, " + usuarioLogado.getNome() + " (" + usuarioLogado.getCargo() + ")\n");
+
+        // Continuar com verificação de equipamento
+        MotorElétrico m = new MotorElétrico("motor", LocalDate.of(2024, 12, 24));
+
+        m.exibirInfo();
+        m.verificarManutenção();
+
+        if (Equipamento.getTotalProblemas() > 0) {
+            Alerta alerta = new Alerta("Problemas detectados durante a verificação!", m);
+            usuarioLogado.receberAlerta(alerta);
+        }
+
+        System.out.println("\nTotal de problemas detectados: " + Equipamento.getTotalProblemas());
+
+        scanner.close();
+    }
+}
