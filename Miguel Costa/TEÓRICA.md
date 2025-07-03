@@ -1,78 +1,3 @@
-#g7
-Projeto do Grupo 7
-
----
----
----
-
-# **Realizado Etapa 1**
-
-# Seção 1 – Introdução
-
-Manter os equipamentos elétricos em bom estado é fundamental para garantir segurança, evitar falhas e manter tudo funcionando bem em indústrias, empresas e até em condomínios. Quando a manutenção não é feita do jeito certo, os riscos aumentam: podem acontecer acidentes, paradas inesperadas nas operações e até prejuízos financeiros. Mesmo assim, ainda é comum ver organizações controlando essas manutenções apenas com planilhas simples ou anotações, o que dificulta muito o acompanhamento e a tomada de decisões mais inteligentes (PIRES, 2019).
-
-A falta de um sistema específico e automatizado para gerenciar a manutenção desses equipamentos gera problemas reais. Um controle manual pode causar perda de informações importantes, atrasos em inspeções e dificuldade em rastrear manutenções corretivas que já foram feitas. Imagine um condomínio com vários transformadores e quadros de distribuição: se não houver um sistema que avise sobre a hora certa de fazer uma manutenção, é muito fácil esquecer e acabar lidando com falhas que poderiam ter sido evitadas.
-
-Com a ajuda da tecnologia, esse processo pode ser muito mais eficiente. Sistemas informatizados facilitam a organização, automatizam tarefas repetitivas, enviam alertas no momento certo e geram relatórios que ajudam na gestão. Um exemplo disso está na Xiaomi, que criou uma fábrica inteligente em Pequim, capaz de produzir mais de 10 milhões de smartphones por ano praticamente sem nenhuma intervenção humana (TECNOGAMES BRASIL, 2024).
-
-Essa fábrica funciona com uma plataforma chamada Xiaomi Pengpai Smart Manufacturing Platform, que usa inteligência artificial, sensores e aprendizado de máquina para prever falhas, tomar decisões e até reconfigurar o processo de produção sozinha (NEW ATLAS, 2024). É um exemplo de como a automação pode transformar a forma como cuidamos dos equipamentos e melhoramos a produtividade.
-
-É claro que um sistema como o da Xiaomi envolve muitos recursos e tecnologias avançadas, que estão fora do alcance da maioria das empresas menores. No entanto, ele serve como inspiração para mostrar o que é possível fazer. Este projeto tem como objetivo justamente adaptar essa ideia para uma realidade mais simples, oferecendo uma solução acessível para pequenas e médias indústrias, empresas ou condomínios, com um sistema de gerenciamento de manutenção desenvolvido com Programação Orientada a Objetos (POO), que seja fácil de usar, eficiente e pronto para evoluir.
-
----
-
-# Seção 2 – Plano
-
-## Objetivo Geral
-
-Criar um sistema de software, utilizando os princípios da Programação Orientada a Objetos (POO), para gerenciar o ciclo de vida e a manutenção de equipamentos elétricos em ambientes industriais ou residenciais. A ideia é permitir o registro, controle e acompanhamento de manutenções, inspeções e ordens de serviço de forma prática e eficiente.
-
-## Objetivos Específicos
-
-* Permitir o cadastro completo dos equipamentos elétricos, com informações como nome, tipo, fabricante, data de compra e tempo estimado de vida útil;
-* Desenvolver funcionalidades para agendar e acompanhar manutenções preventivas e corretivas, com alertas automáticos para lembrar os responsáveis;
-* Gerar relatórios históricos com base em período, tipo de manutenção, status e outros filtros personalizados;
-* Incluir a opção de múltiplas empresas a serem cadastradas;
-* Conectar o sistema a um banco de dados para garantir a segurança e persistência das informações;
-* Utilizar boas práticas da POO para manter o código organizado, reutilizável e fácil de manter ou expandir futuramente.
-
----
-
-# Referências das seções 1 e 2
-
-* PIRES, V. da S. Manutenção elétrica: planejamento, controle e análise de falhas. 2. ed. São Paulo: Érica, 2019.
-
-* TECNOGAMES BRASIL. Xiaomi inaugura fábrica inteligente e autônoma capaz de produzir 10 milhões de smartphones por ano. 2024. Disponível em: [https://tecnogamesbrasil.com.br/2024/07/11/xiaomi-inaugura-fabrica-inteligente-e-autonoma-capaz-de-produzir-10-milhoes-de-smartphones-por-ano/](https://tecnogamesbrasil.com.br/2024/07/11/xiaomi-inaugura-fabrica-inteligente-e-autonoma-capaz-de-produzir-10-milhoes-de-smartphones-por-ano/). Acesso em: 02 jun. 2025.
-
-* NEW ATLAS. Xiaomi's self-optimizing autonomous factory will make 10M+ phones a year. 2024. Disponível em: [https://newatlas.com/robotics/xiaomi-dark-robotic-factory](https://newatlas.com/robotics/xiaomi-dark-robotic-factory). Acesso em: 02 jun. 2025.
-
----
-
-# Seção 3 - Divisão de tarefas
-
-* Gabriel -20%- Programação das classes de usuário, alerta;
-* Gustavo -20%- Começo da harmonização das classes na classe controladora JavaFX;
-* João Pedro -20%- Criação de classe iniciais e diagramas de casos de uso e de sequência;
-* Miguel -20%- Seção 1 e 2, e diagrama de classes;
-
-## Responsabilidades futuras
-* Gabriel - Codificação e criação de classes adicionais e banco de dados;
-* Gustavo - (Interface) Programação da classe controladora JavaFX, e desenvolvimento do layout interativo no SceneBuilder;
-* João Pedro - Codificação e criação das classes de equipamentos e métodos para verificar a situação de cada um;
-* Miguel - Próximos diagramas necessários;
-
----
-
-# Seção 4 - Diagramas
-
-* Pasta Diagrama.md
-
----
----
----
-
-# **Realizado Etapa 2**
-
 # Gerenciamento de Manutenção de Equipamentos Elétricos com Apoio de Sistemas Digitais
 
 A confiabilidade e segurança no uso de equipamentos elétricos é um fator crítico em ambientes industriais e prediais. Com o avanço da digitalização e o surgimento de novas tecnologias da Indústria 4.0, os métodos tradicionais de manutenção precisam evoluir para acompanhar as novas demandas por eficiência e previsibilidade.
@@ -101,29 +26,15 @@ Com tecnologias emergentes como **IoT**, **Inteligência Artificial** e **Machin
 
 Estudos como os de **Zhu et al. (2019)** mostram que algoritmos podem prever falhas ocultas em padrões de operação. **Arifidi et al. (2021)** e **Kane et al. (2022)** demonstram aplicações práticas dessas tecnologias em transformadores, fontes renováveis e painéis de distribuição — otimizando tempo de resposta e reduzindo falhas catastróficas.
 
-Crescimento do Mercado Global de Manutenção Preditiva.
-
-![](https://github.com/poo-ee-2025-1/g7/blob/PARTE-TE%C3%93RICA-MIGUEL/TABELA.PNG)
-
-
-
-
-
-
-
 ## 4. Aplicação no Projeto
 
-Este projeto busca aplicar esses conceitos de forma adaptada e acessível, voltada a pequenas e médias empresas, condomínios ou instalações industriais. Através da **Programação Orientada a Objetos em Java**, está sendo desenvolvido um sistema que premite:
+Este projeto busca aplicar esses conceitos de forma adaptada e acessível, voltada a pequenas e médias empresas, condomínios ou instalações industriais. Através da **Programação Orientada a Objetos em Java**, está sendo desenvolvido um sistema que:
 
-- Cadastro e controle de equipamentos elétricos, como motores, geradores, transformadores e painéis elétricos, com dados técnicos como vida útil, tipo e data de instalação.
-
-- Verificação automatizada de falhas com base em critérios específicos de cada equipamento (ex.: temperatura elevada, desgaste excessivo, horas de uso, acúmulo de poeira).
-
-- Simulações futuras de falhas, permitindo prever o comportamento do equipamento em uma data futura.
-
-- Emissão de alertas e mensagens de recomendação quando problemas são detectados.
-
-- Reset de dados dos equipamentos para restaurar seu estado inicial.
+- Permite o cadastro de equipamentos elétricos com dados técnicos;
+- Agenda manutenções preventivas e registra corretivas;
+- Emite alertas automáticos com base em datas ou tempo de uso;
+- Gera relatórios históricos por período ou tipo de serviço;
+- Pode futuramente integrar sensores ou algoritmos de manutenção preditiva.
 
 Trata-se de uma solução funcional e educativa, semelhante a um **CMMS simplificado**, mas com estrutura pronta para expansão conforme os recursos do usuário.
 
@@ -142,11 +53,10 @@ Trata-se de uma solução funcional e educativa, semelhante a um **CMMS simplifi
 - New Atlas (2024). *Inside Xiaomi's Smart Factory*. Disponível em: [https://newatlas.com](https://newatlas.com)
 
 ---
-#   **Dados Técnicos – Equipamentos Monitorados**
 
 ##  Motor Elétrico
 
-**Vida útil média: ~5 anos**
+** Vida útil média: ~5 anos**
 
 O motor elétrico é um equipamento essencial em ambientes industriais, responsável por transformar energia elétrica em energia mecânica. Essa energia mecânica é utilizada para acionar máquinas, através do acoplamento motor-máquina, sendo peça-chave no funcionamento da linha de produção.  
 Fonte: [DME - Motores Elétricos](https://www.dmedsa.com.br/conccel/48-paginas/economia-de-energia/170-motores-eletricos)
@@ -212,7 +122,7 @@ Para facilitar o controle e o monitoramento, recomenda-se cadastrar os seguintes
 
 ##  Gerador de Energia
 
-**Vida útil média: 10 a 20 anos**  
+** Vida útil média: 10 a 20 anos**  
 Fonte: [Tivea Geradores](https://www.tiveageradores.com/produtos/quanto-tempo-dura-um-gerador-de-energia/)
 
 O gerador de energia é um equipamento essencial em ambientes industriais e comerciais, responsável por converter diferentes formas de energia (mecânica, química, solar, entre outras) em energia elétrica.  
@@ -295,7 +205,7 @@ Para controle e monitoramento dentro do sistema de gerenciamento, recomenda-se r
 
 ##  Transformador Elétrico
 
-**Vida útil média: ~20 anos**  
+** Vida útil média: ~20 anos**  
 Fonte: [Confea – Vida Útil de Transformadores](https://www.confea.org.br/midias/uploads-imce/Contecc2021/Eletricista/A%20VIDA%20%C3%9ATIL%20DE%20TRANSFORMADORES%20EL%C3%89TRICOS%20EM%20RESINA%20EP%C3%93XI.pdf)
 
 O transformador é um dos componentes mais críticos de um sistema elétrico. Ele tem a função de **modificar os níveis de tensão**, seja para reduzir a tensão da rede elétrica (baixa tensão) para uso interno ou elevar a tensão para transmissão em longas distâncias. Essa adaptação é essencial para manter o bom funcionamento de máquinas, equipamentos e sistemas ligados à rede elétrica.  
@@ -359,7 +269,7 @@ Para garantir um monitoramento eficaz, é importante registrar os seguintes dado
 
 ##  Painel de Distribuição Elétrica (Quadro de Distribuição)
 
-**Vida útil média: ~15 anos**  
+** Vida útil média: ~15 anos**  
 Fonte: [IBAPE Nacional – Estudo de Vidas Úteis](https://ibape-nacional.com.br/admin/images/Estudo%20de%20vidas%20_teis%20de%20bens.pdf)
 
 O quadro de distribuição é o ponto central onde todos os circuitos elétricos de uma instalação — seja industrial, comercial ou residencial — se conectam. Através dele, a energia recebida da concessionária é distribuída de forma organizada e segura entre os diversos setores, máquinas, pontos de iluminação e tomadas.  
@@ -424,5 +334,3 @@ Ao registrar um painel de distribuição no sistema de gerenciamento, inclua:
 >  Um painel bem monitorado garante a distribuição segura de energia e contribui diretamente para a confiabilidade de toda a instalação elétrica.
 
 
-
----
