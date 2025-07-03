@@ -1,0 +1,73 @@
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets; // Importação necessária para a correção
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainAppController {
+
+    @FXML private Label welcomeLabel;
+    @FXML private ListView<String> equipmentListView;
+    @FXML private TextArea logTextArea;
+
+    private Usuario usuarioLogado;
+    private List<Equipamento> equipamentos;
+
+    public void initialize() {
+        // Redireciona a saída do console (System.out) para o nosso TextArea
+        OutputStream out = new OutputStream() {
+            @Override
+            public void write(int b) throws IOException {
+                logTextArea.appendText(String.valueOf((char) b));
+            }
+        };
+        
+        // --- LINHA CORRIGIDA ---
+        // Adicionamos StandardCharsets.UTF_8 para forçar a codificação correta de caracteres.
+        System.setOut(new PrintStream(out, true, StandardCharsets.UTF_8));
+        System.setErr(new PrintStream(out, true, StandardCharsets.UTF_8)); // Boa prática corrigir o stream de erro também
+        // --- FIM DA CORREÇÃO ---
+
+        equipamentos = new ArrayList<>();
+        equipamentos.add(new MotorElétrico("Motor da Bomba", 101, LocalDate.of(2023, 1, 15)));
+        equipamentos.add(new Gerador("Gerador de Emergência", 202, LocalDate.of(2023, 5, 20)));
+        equipamentos.add(new Transformador("Transformador Principal", 303, LocalDate.of(2022, 8, 10)));
+        equipamentos.add(new PainelEletrico("Painel de Controle", 404, LocalDate.of(2024, 3, 1)));
+
+        for (Equipamento eq : equipamentos) {
+            equipmentListView.getItems().add(eq.getNome() + " (" + eq.getTipo() + ")");
+        }
+    }
+
+    public void initData(Usuario usuario) {
+        this.usuarioLogado = usuario;
+        welcomeLabel.setText("Bem-vindo, " + usuario.getNome() + " (" + usuario.getCargo() + ")");
+    }
+
+    @FXML
+    void handleVerificarManutencao() {
+        logTextArea.clear();
+        System.out.println("Iniciando verificação de todos os equipamentos...");
+        Equipamento.problemas = 0;
+
+        for (Equipamento eq : equipamentos) {
+            System.out.println("\n-------------------------------------------");
+            eq.verificarManutenção();
+
+            if (Equipamento.getTotalProblemas() > 0) {
+                Alerta alerta = new Alerta("Problemas detectados durante a verificação!", eq);
+                usuarioLogado.receberAlerta(alerta);
+                Equipamento.problemas = 0;
+            }
+        }
+        System.out.println("\n-------------------------------------------");
+        System.out.println("Verificação concluída.");
+    }
+}
