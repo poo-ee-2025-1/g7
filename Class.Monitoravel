@@ -1,0 +1,24 @@
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+
+//Interface que abriga os métodos obrigatórios para todos os equipamentos
+public interface Monitoravel {
+    
+    //Método para simular uma falha baseado na data atual
+    public void simularFalha();
+    
+    //Método que fornece sugestões de correção para os problemas
+    public void correção();
+    
+    //Método que exibe as informações atuais do equipamento
+    public void exibirInfo();
+    
+    //Método que retorna os atributos dos equipamentos aos seus valores primários 
+    public void resetar();
+    
+    //Método para simular uma falha para uma data qualquer de escolha
+    public void simularFalha1(LocalDate dataSimulada);
+}
+
+
