@@ -1,4 +1,4 @@
-##Relatório de Produção Individual – Gabriel
+Relatório de Produção Individual – Gabriel
 
 1. Atribuição de cargo e tarefas
 Cargo atribuído: Desenvolvedor Java(lógica de autenticação e alertas)
