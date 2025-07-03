@@ -1,0 +1,195 @@
+import java.time.LocalDate;             
+                                        
+import java.time.temporal.ChronoUnit;   
+
+
+
+                                        
+//Classe abstrata para ser a base dos equipamentos
+public abstract class Equipamento implements Monitoravel {
+    private static int problemas = 0;  //contador de problemas totais encontrados
+    private static int contaID = 0;  //contador de IDs 
+    protected String tipo;  //tipo do equipamento
+    protected String ID;  //ID do equipamento
+    protected String nome;  //nome do equipamento
+    protected LocalDate dataInstalação;  //data que o equipamento foi instalado
+    protected int vidaUtil;  //vida útil (em anos) do equipamento
+    protected LocalDate ultimaVerificação; //data da última verificação
+    protected int frequenciaManutenções;  //frequência das manutenções (em meses)
+    
+    
+    //Construtor da classe
+    public Equipamento(String nome, LocalDate dataInstalação) {
+        contaID++;
+        
+        this.tipo = tipo;
+        this.ID = String.format("%02d", contaID);  //usado para imprimir o ID na forma: 01, 02,...
+        
+        
+        //teste para impedir que o programa continue sem ter um nome informado
+        if(nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Erro: Nome do equipamento não pode ser nulo!");
+        } else {
+            this.nome = nome;
+        }
+        
+        
+        //teste para evitar que a data de instalação seja nula ou seja posterior à data atual
+        if (dataInstalação == null) {
+            throw new IllegalArgumentException("Erro: A data de instalação não pode ser nula!");
+        } else if (dataInstalação.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("Erro: A data de instalação não pode ser cadastrada, pois ainda não ocorreu!");
+        } else {
+            this.dataInstalação = dataInstalação;
+        }
+        
+    
+        
+        this.vidaUtil = vidaUtil;
+        this.ultimaVerificação = dataInstalação;
+        this.frequenciaManutenções = frequenciaManutenções;
+    }
+    
+    
+    //Métodos get/set e estáticos auxiliares
+    public static int getContaID() {
+        return contaID;
+    }
+    
+    public static void registrarProblema() {
+        problemas++;
+    }
+    
+    public static void resetarProblemas() {
+        problemas = 0;
+    }
+    
+    public static int getTotalProblemas() {
+        return problemas;
+    }
+    
+    public String getID() {
+        return ID;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+    
+    public String getTipo() {
+        return tipo;
+    }
+    
+    public LocalDate getDataInstalação() {
+        return dataInstalação;
+    }
+    
+    public LocalDate getUltimaVerificação() {
+        return ultimaVerificação;
+    }
+    
+    
+    
+    
+    //Método para exibir as informações atuais do equipamento
+    public void exibirInfo() {
+        System.out.println("Tipo: " + tipo);
+        System.out.println("Nome: " + nome);
+        System.out.println("ID: " + ID);
+        System.out.println("Data de instalação: " + dataInstalação);
+        System.out.println("Vida útil (em anos): " + vidaUtil);
+        System.out.println("Frequência de manutenções (em meses): " + frequenciaManutenções);
+        System.out.println("Data da última verificação feita: " + ultimaVerificação);
+    }
+    
+    
+    
+    //Método para verificar se o equipamento precisa de manutenção baseado na data atual
+    public void verificarManutenção() {
+        
+        //associa à "dataHoje" da data atual da execução
+        LocalDate dataHoje = LocalDate.now();
+        
+        System.out.println("Verificando: " + nome);
+        System.out.println("Última verificação realizada: " + ultimaVerificação);
+        
+        //calcula a diferença de tempo em meses desde a ultima verificação até hoje
+        long mesesUso = ChronoUnit.MONTHS.between(ultimaVerificação, dataHoje);
+        
+        //calcula a diferença de tempo em dias desde a ultima verificação até hoje
+        long dias = ChronoUnit.DAYS.between(ultimaVerificação, dataHoje);
+        
+        //muda o tipo de contagem de tempo (dias ou meses) baseado no tipo do equipamento
+        if (tipo.equals("Motor Elétrico") || tipo.equals("Transformador") || tipo.equals("Painel Elétrico")) {
+            System.out.println("Meses desde a última verificação: " + mesesUso);
+        } else {
+            System.out.println("Dias desde a última verificação: " + dias);
+        }
+        
+        
+        //calcula qual será o próximo dia de verificação sugerido
+        LocalDate proximaManutenção = ultimaVerificação.plusMonths(frequenciaManutenções);
+        
+        
+        //verifica se a manutenção foi feita antes, no dia ou está atrasada em relação ao dia sugerido
+        if (dataHoje.isBefore(proximaManutenção)) {
+            long diasFaltando = ChronoUnit.DAYS.between(dataHoje, proximaManutenção);
+            System.out.println("Verificação feita com antecedência. Dias adiantado: " + diasFaltando);
+        } else if 
+            (dataHoje.isEqual(proximaManutenção)) {
+            System.out.println("Verificação realizada no dia previsto da manutenção.");
+        } else {
+            long diasAtraso = ChronoUnit.DAYS.between(proximaManutenção, dataHoje);
+            System.out.println("Atenção! Verificação atrasada em " + diasAtraso + " dias da última manutenção prevista.");
+        }
+        
+        //chama o método simular falha individual de cada equipamento
+        simularFalha();
+        
+        //atualiza o dia da última verificação
+        ultimaVerificação = dataHoje;
+    }
+    
+    
+    //Métodos reescritos devido à necessidade por estarem na interface
+    public abstract void correção();
+    
+    
+    public abstract void resetar();
+    
+    
+    
+    //Método para simular uma verificação em uma data diferente da atual (o usuário agora escolhe a data)
+    public void simularVerificação(LocalDate dataSimulada) {
+        
+        System.out.println("Verificando: " + nome);
+        System.out.println("Última verificação realizada: " + ultimaVerificação);
+        
+        long mesesUso = ChronoUnit.MONTHS.between(ultimaVerificação, dataSimulada);
+        long dias = ChronoUnit.DAYS.between(ultimaVerificação, dataSimulada);
+        
+        if (tipo.equals("Motor Elétrico") || tipo.equals("Transformador") || tipo.equals("Painel Elétrico")) {
+            System.out.println("Meses desde a última verificação: " + mesesUso);
+        } else {
+            System.out.println("Dias desde a última verificação: " + dias);
+        }
+        
+        
+        LocalDate proximaManutenção = ultimaVerificação.plusMonths(frequenciaManutenções);
+        
+        if (dataSimulada.isBefore(proximaManutenção)) {
+            long diasFaltando = ChronoUnit.DAYS.between(dataSimulada, proximaManutenção);
+            System.out.println("Verificação será feita com antecedência. Dias adiantado: " + diasFaltando);
+        } else if 
+            (dataSimulada.isEqual(proximaManutenção)) {
+            System.out.println("Verificação será realizada no dia previsto da manutenção.");
+        } else {
+            long diasAtraso = ChronoUnit.DAYS.between(proximaManutenção, dataSimulada);
+            System.out.println("Atenção! Verificação estará atrasada em " + diasAtraso + " dias da última manutenção prevista.");
+        }
+        
+        
+        //chama o método para simular a falha de um equipamento para uma data simulada
+        simularFalha1(dataSimulada);
+    }
+}
