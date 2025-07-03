@@ -24,7 +24,7 @@
 
  <br>
 
- ![](https://github.com/poo-ee-2025-1/g7/blob/parte-Jo%C3%A3o-Pedro-Caix%C3%AAta/Classes.png?raw=true)
+ ![](https://github.com/poo-ee-2025-1/g7/blob/parte-Jo%C3%A3o-Pedro-Caix%C3%AAta/Jo%C3%A3o%20Pedro/Imagens/Classes.png?raw=true)
 
  <br>
  
@@ -37,7 +37,7 @@
 
  <br>
 
-![](https://github.com/poo-ee-2025-1/g7/blob/parte-Jo%C3%A3o-Pedro-Caix%C3%AAta/TesteClasses.png?raw=true)
+![](https://github.com/poo-ee-2025-1/g7/blob/parte-Jo%C3%A3o-Pedro-Caix%C3%AAta/Jo%C3%A3o%20Pedro/Imagens/TesteClasses.png?raw=true)
 
 <br>
  
@@ -50,7 +50,7 @@
 
  <br>
 
- ![](https://github.com/poo-ee-2025-1/g7/blob/parte-Jo%C3%A3o-Pedro-Caix%C3%AAta/TempoClasses.png?raw=true)
+ ![](https://github.com/poo-ee-2025-1/g7/blob/parte-Jo%C3%A3o-Pedro-Caix%C3%AAta/Jo%C3%A3o%20Pedro/Imagens/TempoClasses.png?raw=true)
 
  <br>
  
