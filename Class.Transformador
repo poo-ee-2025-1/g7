@@ -1,0 +1,154 @@
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+
+//Classe que representa um Transformador e herda Equipamento
+public class Transformador extends Equipamento {
+    private double desgasteTotal = 0.0;  //desgaste total do equipamento (em porcentagem)
+    private double desgastePercentual = 2.5;  //desgaste percentual do transformador para cada mês
+    private double reduçãoVidaUtil = 8.0;  //quanto da vida útil é reduzida (em meses) após 1 mês de problemas sem correção
+
+    
+    public Transformador(String nome, LocalDate dataInstalação) {
+        super(nome, dataInstalação);
+        this.tipo = "Transformador";
+        this.vidaUtil = 20;
+        this.frequenciaManutenções = 10;
+    }
+    
+    
+    @Override
+    public void simularFalha() {
+        LocalDate dataHoje = LocalDate.now();
+        
+        long meses = ChronoUnit.MONTHS.between(ultimaVerificação, dataHoje);
+        
+        //define o valor de desgaste total após uma quantidade de meses usado
+        desgasteTotal = desgasteTotal + (meses * desgastePercentual);
+        
+        System.out.printf("Desgaste total até agora: %.1f%%%n " , desgasteTotal);
+        
+        
+        int mesesProblema = 0;
+        
+        
+        //calcula a quantidade de meses desde que o equipamento começou a apresentar problema
+        if (desgasteTotal > 70) {
+            for (int i = 0; i <= meses; i++) {
+                double desgaste = desgasteTotal - ((meses - i) * desgastePercentual);
+                
+                if (desgaste > 70) {
+                    mesesProblema = (int)(meses - i);
+                    break;
+                }
+            }
+        }
+        
+        
+        //define o tipo de aviso que será emitido baseado no nível do problema
+        if (desgasteTotal >= 90) {
+            System.out.println("Transformador: " + nome + ", estragado!");
+            Equipamento.registrarProblema();
+            
+            double novaVida = Math.max(vidaUtil - ((mesesProblema * reduçãoVidaUtil) / 12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o transformador teve sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else if (desgasteTotal > 60) {
+            System.out.println("Transformador: " + nome + ", altamente desgastado!");
+            Equipamento.registrarProblema();
+            
+            double novaVida = Math.max(vidaUtil - ((mesesProblema * reduçãoVidaUtil) / 12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o transformador teve sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else {
+            System.out.println("Transformador: " + nome + ", em boas condições!");
+            
+            System.out.println("A vida útil do transformador continua seguindo a média!");
+        }
+    }
+    
+    
+    @Override
+    public void correção() {
+        if (desgasteTotal >= 100) {
+            System.out.println("Sugestão de correção para o transformador: " + nome + ": Substituição imediata.");
+        } else if (desgasteTotal > 70) {
+            System.out.println("Sugestão de correção para o transformador: " + nome + ": Manutenção corretiva indicada urgentemente.");
+        } else {
+            System.out.println("Sugestão de correção para o transformador: " + nome + ": nenhuma, transformador em boas condições.");
+        }
+    }
+    
+    
+    @Override
+    public void exibirInfo() {
+        super.exibirInfo();
+        System.out.println("Desgaste total atual: " + desgasteTotal);
+    }
+    
+    
+    public double getDesgasteTotal() {
+        return desgasteTotal;
+    }
+    
+    
+    //impede que o desgaste total seja definido como negativo
+    public void setDesgasteTotal(double novoDesgaste) {
+        if (novoDesgaste < 0) {
+            throw new IllegalArgumentException("Erro: O desgaste total do transformador não pode ter valor negativo!");
+        }
+        desgasteTotal = novoDesgaste;
+    }
+    
+    
+    @Override
+    public void resetar() {
+        this.vidaUtil = 20;
+        this.desgasteTotal = 0.0;
+        this.ultimaVerificação = dataInstalação;
+    }
+    
+    
+    
+    @Override
+    public void simularFalha1(LocalDate dataSimulada) {
+        long meses = ChronoUnit.MONTHS.between(ultimaVerificação, dataSimulada);
+        double desgasteTotal1 = desgasteTotal + (meses * desgastePercentual);
+        
+        System.out.printf("Desgaste total até essa data: %.1f%%%n " , desgasteTotal1);
+        
+        
+        int mesesProblema = 0;
+        if (desgasteTotal1 > 70) {
+            for (int i = 0; i <= meses; i++) {
+                double desgaste = desgasteTotal1 - ((meses - i) * desgastePercentual);
+                
+                if (desgaste > 70) {
+                    mesesProblema = (int)(meses - i);
+                    break;
+                }
+            }
+        }
+        
+        
+        if (desgasteTotal1 >= 90) {
+            System.out.println("Transformador: " + nome + ", estragará!");
+            Equipamento.registrarProblema();
+            
+            double novaVida = Math.max(vidaUtil - ((mesesProblema * reduçãoVidaUtil) / 12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o transformador terá sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else if (desgasteTotal1 > 60) {
+            System.out.println("Transformador: " + nome + ", estará altamente desgastado!");
+            Equipamento.registrarProblema();
+            
+            double novaVida = Math.max(vidaUtil - ((mesesProblema * reduçãoVidaUtil) / 12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o transformador terá sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else {
+            System.out.println("Transformador: " + nome + ", estará em boas condições!");
+            
+            System.out.println("A vida útil do transformador continuará seguindo a média!");
+        }
+    }
+}
