@@ -1,0 +1,109 @@
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+
+//Classe que representa um Painel Elétrico e herda Equipamento
+public class PainelEletrico extends Equipamento {
+    private boolean poeiraAcumulada;  //valor de poeira acumulada(true/false)
+    private double reduçãoVidaUtil = 3;  //quanto da vida útil é reduzida (em meses) após 1 mês de problemas sem correção
+    
+    
+    public PainelEletrico(String nome, LocalDate dataInstalação) {
+        super(nome, dataInstalação);
+        this.tipo = "Painel Elétrico";
+        this.vidaUtil = 15;
+        this.frequenciaManutenções = 6;
+        this.poeiraAcumulada = false;
+    }
+    
+    
+    @Override
+    public void simularFalha () {
+        LocalDate dataHoje = LocalDate.now();
+        
+        long meses = ChronoUnit.MONTHS.between(ultimaVerificação, dataHoje);
+        
+        int mesesProblema = 0;
+        
+        //calcula quantos meses o equipamento está com problema
+        if (meses > 6) {
+            mesesProblema = (int)(meses - 6);
+        }
+        
+        
+        //define o tipo de aviso que será apresentado caso haja problema
+        if (meses > 6 && !poeiraAcumulada) {
+            poeiraAcumulada = true;
+            System.out.println("Atenção! Limpeza do painel elétrico: " + nome + ", solicitada!");
+            Equipamento.registrarProblema();
+            
+            double novaVida = Math.max(vidaUtil - ((Math.max(mesesProblema, 0) * reduçãoVidaUtil) / 12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o painel teve sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else {
+            System.out.println("Limpeza do painel elétrico em dia!");
+            
+            System.out.println("A vida útil do painel continua seguindo a média!");
+        }
+    }
+    
+    
+    @Override
+    public void correção() {
+        LocalDate dataHoje = LocalDate.now();
+        long meses = ChronoUnit.MONTHS.between(ultimaVerificação, dataHoje);
+        
+        if (poeiraAcumulada) {
+            System.out.println("Sugestão de correção para o painel: " + nome + ": Apenas limpe o painel.");
+        } else { 
+            System.out.println("Sugestão de correção para o painel: " + nome + ": nenhuma, limpeza do painel desnecessária.");
+        }   
+    }
+    
+    
+    @Override
+    public void exibirInfo() {
+        super.exibirInfo();
+        
+        if (poeiraAcumulada == false) {
+            System.out.println("Poeira acumulada: não!");
+        } else {
+            System.out.println("Poeira acumulada: sim!");
+        }
+    }
+    
+    
+    
+    @Override
+    public void resetar() {
+        this.vidaUtil = 15;
+        this.ultimaVerificação = dataInstalação;
+        this.poeiraAcumulada = false;
+    }
+    
+    
+    
+    @Override
+    public void simularFalha1(LocalDate dataSimulada) {
+        long meses = ChronoUnit.MONTHS.between(ultimaVerificação, dataSimulada);
+        
+        
+        int mesesProblema = 0;
+        if (meses > 6) {
+            mesesProblema = (int)(meses - 6);
+        }
+        
+        if (meses > 6) {
+            System.out.println("Atenção! Limpeza do painel elétrico: " + nome + ", será solicitada!");
+            Equipamento.registrarProblema();
+            
+            double novaVida = Math.max(vidaUtil - ((Math.max(mesesProblema, 0) * reduçãoVidaUtil) / 12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o painel terá sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else {
+            System.out.println("Limpeza do painel elétrico estará em dia!");
+            
+            System.out.println("A vida útil do painel continuará seguindo a média!");
+        }
+    }
+}
