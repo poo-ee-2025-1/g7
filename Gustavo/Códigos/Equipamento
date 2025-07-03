@@ -1,0 +1,82 @@
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public abstract class Equipamento implements Monitoravel {
+    private static int contaID = 0;
+    public static int problemas = 0; // Modificado para public para acesso direto no controller
+    protected String tipo;
+    protected int ID;
+    protected String nome;
+    protected LocalDate dataInstalação;
+    protected int vidaUtil;
+    protected LocalDate ultimaVerificação;
+    protected int frequenciaManutenções;
+    
+    public Equipamento(String nome, int ID, LocalDate dataInstalação) {
+        this.tipo = tipo;
+        this.ID = ID;
+        contaID++;
+        this.nome = nome;
+        if (dataInstalação.isAfter(LocalDate.now())) {
+            throw new
+            IllegalArgumentException("Erro: A data de instalação não pode ser cadastrada, pois ainda não ocorreu!");
+        } else {
+            this.dataInstalação = dataInstalação;
+        }
+        this.vidaUtil = vidaUtil;
+        this.ultimaVerificação = dataInstalação;
+        this.frequenciaManutenções = frequenciaManutenções;
+    }
+    
+    public static int getContaID() {
+        return contaID;
+    }
+    
+    public static void registrarProblema() {
+        problemas++;
+    }
+    
+    public static int getTotalProblemas() {
+        return problemas;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+    
+    public void exibirInfo() {
+        System.out.println("Tipo: " + tipo);
+        System.out.println("Nome: " + nome);
+        System.out.println("ID: " + ID);
+        System.out.println("Data de instalação: " + dataInstalação);
+        System.out.println("Vida útil (em anos): " + vidaUtil);
+        System.out.println("Frequência de manutenções (em meses): " + frequenciaManutenções);
+        System.out.println("Data da última verificação feita: " + ultimaVerificação);
+    }
+    
+    public void verificarManutenção() {
+        LocalDate dataHoje = LocalDate.now();
+        System.out.println("Verificando: " + nome);
+        System.out.println("Última verificação realizada: " + ultimaVerificação);
+        long mesesUso = ChronoUnit.MONTHS.between(ultimaVerificação, dataHoje);
+        System.out.println("Meses desde a última verificação: " + mesesUso);
+        LocalDate proximaManutenção = ultimaVerificação.plusMonths(frequenciaManutenções);
+        
+        if (dataHoje.isBefore(proximaManutenção)) {
+            long diasFaltando = ChronoUnit.DAYS.between(dataHoje, proximaManutenção);
+            System.out.println("Verificação feita com antecedência. Dias adiantado: " + diasFaltando);
+        } else if (dataHoje.isEqual(proximaManutenção)) {
+            System.out.println("Verificação realizada no dia previsto da manutenção.");
+        } else {
+            long diasAtraso = ChronoUnit.DAYS.between(proximaManutenção, dataHoje);
+            System.out.println("Atenção! Verificação atrasada em " + diasAtraso + " dias");
+        }
+        
+        simularFalha();
+        ultimaVerificação = dataHoje;
+    }
+}
