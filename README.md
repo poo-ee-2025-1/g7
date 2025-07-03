@@ -1,4 +1,4 @@
-# g7
+#g7
 Projeto do Grupo 7
 
 ---
@@ -426,6 +426,3 @@ Ao registrar um painel de distribuição no sistema de gerenciamento, inclua:
 
 
 ---
-
-
-

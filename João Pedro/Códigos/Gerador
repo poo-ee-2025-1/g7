@@ -1,0 +1,135 @@
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;         
+
+
+//Classe que representa um Gerador e herda Equipamento
+public class Gerador extends Equipamento {
+    private double horasUsado = 0.0;  //total de horas usado
+    private double limiteHoras = 5000.0;  //limite de horas totais que o gerador consegue aguentar
+    private double horasDia = 3.0;  //horas usado em 1 dia
+    private double reduçãoVidaUtil = 6.0;  //quanto da vida útil é reduzida (em meses) após 1 mês de problemas sem correção
+    
+    
+    public Gerador(String nome, LocalDate dataInstalação) {
+        super(nome, dataInstalação);
+        this.tipo = "Gerador";
+        this.vidaUtil = 15;
+        this.frequenciaManutenções = 6;
+    }
+    
+    
+    @Override
+    public void simularFalha() {
+        LocalDate dataHoje = LocalDate.now();
+        
+        long dias = ChronoUnit.DAYS.between(ultimaVerificação, dataHoje);
+        
+        //modifica a quantidade de horas usado baseado na quantidade de dias usado
+        horasUsado = horasUsado + (dias * horasDia);
+        
+        System.out.printf("Horas usadas até agora: %.1fh%n " , horasUsado);
+        
+        
+        
+        //define o tipo de aviso que será exibido baseado no nível do problema encontrado
+        if (horasUsado > limiteHoras) {
+            System.out.println("Atenção! O limite de horas do gerador: " + nome + ", ultrapassou o limite permitido em " + (horasUsado - limiteHoras) + " horas!");
+            Equipamento.registrarProblema();
+            
+            double excesso = Math.max(horasUsado - limiteHoras, 0);
+            double mesesProblema = (excesso / horasDia / 30);
+            double novaVida = Math.max(vidaUtil - (mesesProblema * reduçãoVidaUtil / 12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o gerador teve sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else {
+            System.out.println("Uso do gerador: " + nome + ", dentro do limite de horas estabelecido!");
+            
+            System.out.println("A vida útil do gerador continua seguindo a média!");
+        }
+    }
+    
+    
+    @Override
+    public void correção() {
+        if (horasUsado > limiteHoras) {
+            System.out.println("Sugestão de correção para o gerador: " + nome + ": Realizar manutenção para reparos ou trocar o equipamento.");
+        } else {
+            System.out.println("Sugestão de correção para o gerador: " + nome + ": nenhuma, gerador em boas condições.");
+        }
+    }
+    
+    
+    @Override
+    public void exibirInfo() {
+        super.exibirInfo();
+        System.out.println("Horas usado atual: " + horasUsado);
+    }
+    
+    
+    public double getHorasUsado() {
+        return horasUsado;
+    }
+    
+    
+    //impede que o valor de horas usado seja negativo
+    public void setHorasUsado(double novaHora) {
+        if (novaHora < 0) {
+            throw new IllegalArgumentException("Erro: As horas usadas não podem ter valor negativo!");
+        }
+        horasUsado = novaHora;
+    }
+    
+    
+    public double getLimiteHoras() {
+        return limiteHoras;
+    }
+    
+    
+    //impede que o limite de horas suportado seja negativo
+    public void setLimiteHoras(double novoLimite) {
+        if (novoLimite < 0) {
+            throw new IllegalArgumentException("Erro: O limite de horas usadas não podem ter valor negativo!");
+        }
+        limiteHoras = novoLimite;
+    }
+    
+    
+    
+    @Override
+    public void resetar() {
+        this.vidaUtil = 15;
+        this.limiteHoras = 500.0;
+        this.horasUsado = 0.0;
+        this.ultimaVerificação = dataInstalação;
+    }
+    
+    
+    
+    @Override
+    public void simularFalha1(LocalDate dataSimulada) {
+        long dias = ChronoUnit.DAYS.between(ultimaVerificação, dataSimulada);
+        double horasUsado1 = horasUsado + (dias * horasDia);
+        
+        System.out.printf("Horas usadas até essa data: %.1fh%n " , horasUsado1);
+        
+        int mesesProblema = 0;
+        if (horasUsado1 > limiteHoras) {
+            double excesso = Math.max(horasUsado1 - limiteHoras, 0);
+            mesesProblema = (int)(((excesso/horasDia)/30));
+        }
+        
+        
+        if (horasUsado1 > limiteHoras) {
+            System.out.println("Atenção! O limite de horas do gerador: " + nome + ", ultrapassará o limite permitido em " + (horasUsado1 - limiteHoras) + " horas!");
+            Equipamento.registrarProblema();
+            
+            double novaVida = Math.max(vidaUtil - (mesesProblema * reduçãoVidaUtil / 12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o gerador terá sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else {
+            System.out.println("Uso do gerador: " + nome + ", estará dentro do limite de horas estabelecido!");
+            
+            System.out.println("A vida útil do gerador continuará seguindo a média!");
+        }
+    }
+}
