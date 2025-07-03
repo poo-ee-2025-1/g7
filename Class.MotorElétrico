@@ -1,0 +1,182 @@
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+
+//Classe que representa um Motor Elétrico e herda a classe Equipamento
+public class MotorElétrico extends Equipamento {
+    private double temperaturaAtual;  //temperatura atual do motor
+    private double temperaturaIdeal = 70.0;  //temperatura ideal de se manter o motor
+    private double aumentoMes = 4.0;  //valor de aumento (em graus Célsius) da temperatura por mês
+    private double reduçãoVidaUtil = 2.0;  //quanto da vida útil é reduzida (em meses) após 1 mês de problemas sem correção
+    
+    
+    //Construtor da classe
+    public MotorElétrico(String nome, LocalDate dataInstalação) {
+        super(nome, dataInstalação);
+        this.tipo = "Motor Elétrico";
+        this.vidaUtil = 5;
+        this.frequenciaManutenções = 6;
+        this.temperaturaAtual = temperaturaIdeal;
+    }
+    
+    
+    
+    //Métodos get/set para os atributos
+    public double getTemperatura() {
+        return temperaturaAtual;
+    }
+    
+    
+    public void setTemperatura(double novaTemperatura) {
+        
+        //impede a alteração da temperatura atual do motor ser negativa
+        if (novaTemperatura < 0) {
+            throw new IllegalArgumentException("Erro: Temperatura do motor não pode ser negativa!");
+        }
+        
+        temperaturaAtual = novaTemperatura;
+    }
+    
+    
+    public double getTemperaturaIdeal() {
+        return temperaturaIdeal;
+    }
+    
+    
+    public void setTemperaturaIdeal(double novaTemperaturaIdeal) {
+        
+        //impede a alteração da temperatura ideal do motor ser negativa
+        if (novaTemperaturaIdeal < 0) {
+            throw new IllegalArgumentException("Erro: Temperatura do motor não pode ser negativa!");
+        }
+        
+        temperaturaIdeal = novaTemperaturaIdeal;
+    }
+    
+    
+    
+    //Método que simula uma falha para o motor baseado na diferença de tempo da última verificação até hoje
+    @Override
+    public void simularFalha() {
+        LocalDate dataHoje = LocalDate.now();
+        long mesesUso = ChronoUnit.MONTHS.between(ultimaVerificação, dataHoje);
+        
+        
+        //modifica a temperatura atual baseado no aumento que ela teve com o passar do tempo
+        temperaturaAtual = temperaturaAtual + (mesesUso * aumentoMes);
+        
+        System.out.printf("Temperatura atual: %.1f°C%n " , temperaturaAtual);
+        
+        int mesesProblema = 0;  //meses que o equipamento está danificado
+        
+        
+        //calcula a quantidade de meses desde que o equipamento começou a apresentar problema
+        for (int i = 0; i <= mesesUso; i++) {
+            double temp = temperaturaIdeal + (i * aumentoMes);
+            
+            if (temp > (temperaturaIdeal + 10.0)) {
+                mesesProblema = (int)(mesesUso - i);
+                break;
+            }
+        }
+        
+        
+        
+        //define o tipo de aviso que será exibido baseado no tamanho do problema encontrado
+        if (temperaturaAtual > temperaturaIdeal + 20.0) {
+            System.out.println("Atenção! Motor: " + nome + ", superaquecido! Perigo!");
+            Equipamento.registrarProblema();  //adiciona 1 problema encontrado ao contador de problemas
+            
+            //calcula o valor da nova vida útil do equipamento após esse tempo de problema e o impede de ser menor que 0
+            double novaVida = Math.max(vidaUtil - ((mesesProblema * reduçãoVidaUtil)/12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o motor teve sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else if (temperaturaAtual > temperaturaIdeal + 10.0) {
+            System.out.println("Atenção! Temperatura do motor: " + nome + ", está elevada acima do normal!");
+            Equipamento.registrarProblema();
+            
+            double novaVida = Math.max(vidaUtil - ((mesesProblema * reduçãoVidaUtil)/12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o motor teve sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else {
+            System.out.println("Temperatura do motor: " + nome + ", dentro da temperatura normal!");
+            
+            System.out.println("A vida útil do motor continua seguindo a média!");
+        }
+    }
+    
+    
+    //Método que sugere uma correção ao equipamento baseado no nível de problema encontrado
+    @Override
+    public void correção() {
+        if (temperaturaAtual > temperaturaIdeal + 20.0) {
+            System.out.println("Sugestão de correção para o motor: " + nome + ": Substituição imediata do motor.");
+        } else if (temperaturaAtual > temperaturaIdeal + 10.0) {
+            System.out.println("Sugestão de correção para o motor: " + nome + ": Resfriar o motor e deixá-lo desligado por um tempo.");
+        } else {
+            System.out.println("Sugestão de correção para o motor: " + nome + ": nenhuma, motor em boas condições.");
+        }
+    }
+    
+    
+    //Método que exibe as informações atuais do equipamento
+    @Override
+    public void exibirInfo() {
+        super.exibirInfo();
+        System.out.println("Temperatura atual: " + temperaturaAtual);
+    }
+    
+    
+    //Método que retorna o valor dos atributos ao seus valores primários
+    @Override
+    public void resetar() {
+        this.vidaUtil = 5;
+        this.temperaturaIdeal = 70;
+        this.temperaturaAtual = temperaturaIdeal;
+        this.ultimaVerificação = dataInstalação;
+    }
+    
+    
+    
+    //Método para simular uma verificação em uma data diferente da atual (o usuário agora escolhe a data)
+    @Override
+    public void simularFalha1(LocalDate dataSimulada) {
+        long mesesUso = ChronoUnit.MONTHS.between(ultimaVerificação, dataSimulada);
+        
+        double temperaturaSimulada = temperaturaAtual + (mesesUso * aumentoMes);
+        
+        System.out.printf("Temperatura simulada: %.1f°C%n " , temperaturaSimulada);
+        
+        int mesesProblema = 0;
+        
+        for (int i = 0; i <= mesesUso; i++) {
+            double temp = temperaturaIdeal + (i * aumentoMes);
+            
+            if (temp > (temperaturaIdeal + 10.0)) {
+                mesesProblema = (int)(mesesUso - i);
+                break;
+            }
+        }
+        
+        
+        if (temperaturaSimulada > temperaturaIdeal + 20.0) {
+            System.out.println("Atenção! Motor " + nome + " estará superaquecido! Perigo!");
+            Equipamento.registrarProblema();
+            
+            double novaVida = Math.max(vidaUtil - ((mesesProblema * reduçãoVidaUtil)/12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o motor teve sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else if (temperaturaSimulada > temperaturaIdeal + 10.0) {
+            System.out.println("Atenção! Temperatura do motor " + nome + " estará elevada acima do normal!");
+            Equipamento.registrarProblema();
+            
+            double novaVida = Math.max(vidaUtil - ((mesesProblema * reduçãoVidaUtil)/12), 0);
+            
+            System.out.println("Devido à demora de " + mesesProblema + " meses, o motor terá sua vida útil reduzida para: " + String.format("%.1f", (novaVida)) + "/" + vidaUtil + " anos");
+        } else {
+            System.out.println("Temperatura do motor " + nome + " estará dentro da temperatura normal!");
+            
+            System.out.println("A vida útil do motor continuará seguindo a média!");
+        } 
+    }
+}
