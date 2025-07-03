@@ -39,4 +39,6 @@ Embora eu **não tenha feito a parte teórica** sobre os equipamentos elétricos
 
 Ao final, conseguimos entregar o projeto com tudo o que foi pedido: **código funcional, documentação organizada e o planejamento bem estruturado**. Essa experiência me mostrou como é importante dividir bem as tarefas, colaborar em equipe e ter organização em todas as etapas. Foi um processo em que aprendi bastante e que com certeza me deixou mais preparado para futuros projetos.
 
+- Como trabalho futuro poderias melhoras as opções de informações de entrada de equipamentos, de acordo com a pesquisa da parte teórica.
+
 ---
