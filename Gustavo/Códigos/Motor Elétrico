@@ -1,0 +1,52 @@
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class MotorElétrico extends Equipamento {
+    private double temperaturaAtual;
+    private double temperaturaIdeal = 70.0;
+    private double aumentoMes = 4.0;
+    
+    public MotorElétrico(String nome, int ID, LocalDate dataInstalação) {
+        super(nome, ID, dataInstalação);
+        this.tipo = "Motor Elétrico";
+        this.vidaUtil = 5;
+        this.ultimaVerificação = dataInstalação;
+        this.frequenciaManutenções = 6;
+        this.temperaturaAtual = temperaturaIdeal;
+    }
+    
+    public double getTemperatura() {
+        return temperaturaAtual;
+    }
+    
+    public void setTemperatura(double novaTemperatura) {
+        temperaturaAtual = novaTemperatura;
+    }
+    
+    public double getTemperaturaIdeal() {
+        return temperaturaIdeal;
+    }
+    
+    public void setTemperaturaIdeal(double novaTemperaturaIdeal) {
+        temperaturaIdeal = novaTemperaturaIdeal;
+    }
+    
+    @Override
+    public void simularFalha() {
+        LocalDate dataHoje = LocalDate.now();
+        long mesesUso = ChronoUnit.MONTHS.between(ultimaVerificação, dataHoje);
+        temperaturaAtual = temperaturaAtual + (mesesUso * aumentoMes);
+        
+        System.out.println("Temperatura atual: " + temperaturaAtual + " graus célsius!");
+        
+        if (temperaturaAtual > temperaturaIdeal + 20) {
+            System.out.println("Atenção! Motor superaquecido! Perigo!");
+            Equipamento.registrarProblema();
+        } else if (temperaturaAtual > temperaturaIdeal + 10) {
+            System.out.println("Atenção! Temperatura do motor está elevada acima do normal!");
+            Equipamento.registrarProblema();
+        } else {
+            System.out.println("Temperatura do motor dentro da temperatura normal!");
+        }
+    }
+}
