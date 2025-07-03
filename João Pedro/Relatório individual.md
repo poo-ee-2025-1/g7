@@ -15,7 +15,7 @@
 
 <br>
 
- **Contribuições da minha atribuição**: Uma vez encarregado da programação do projeto, eu criei um código que permite a análise de determinados equipamentos e, dessa forma, retornar um diagnóstico a respeito de sua condição especificada, como por exemplo: equipamento funcional, equipamento com problema ou equipamento estragado. Para isso, eu realizei as seguintes tarefas:
+ **Contribuições da minha atribuição**: Uma vez encarregado da programação do projeto, eu criei um código que permite a análise de determinados equipamentos e, dessa forma, retornar um diagnóstico a respeito de sua condição especificada, como por exemplo: **equipamento funcional, equipamento com problema ou equipamento estragado**. Para isso, eu realizei as seguintes tarefas:
 
 #### Classes: (Equipamento; Motor Elétrico; Gerador; Transformador; Painel Elétrico; Monitorável e Util Equipamentos)
 #### Métodos: (exibirInfo(); verificarManutenção(); simularFalha())
