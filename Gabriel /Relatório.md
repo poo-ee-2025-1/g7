@@ -64,5 +64,9 @@ Mesmo com escopo reduzido, as classes Usuario e Alerta foram fundamentais para o
 A experiência me ajudou a entender como os objetos e a lógica de POO se conectam em um projeto real.
 
 REFERENCIAS
-Uso de Datas - LocalDate
+
+Uso de LocalDate
 https://www.youtube.com/watch?v=G2rChxrc1ug&t=3s&ab_channel=RodrigoFreitas
+
+Comando gerais usados
+https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html
