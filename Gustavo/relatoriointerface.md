@@ -112,3 +112,25 @@ O desenvolvimento desta fase de interface foi fundamentado em documentações en
 
 * **API de Data e Hora (`java.time`):**
     * **Fonte:** [Oracle Java Documentation: `java.time` Package](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/package-summary.html)
+      
+---
+
+
+### 6. A interface
+
+Ao executar o programa, com as classes e seus respectivos códigos e sintaxes prontos e compilados, a interface que é o output do programa apresenta as seguintes telas:
+
+* **Tela de login/identificação do usuário:**
+
+
+![image](https://github.com/user-attachments/assets/29257440-3a76-4a17-bdd2-391e9b1c2389)
+
+
+
+* **Tela do painel de monitoramento/diagnóstico de cada equipamento:**
+
+
+![image](https://github.com/user-attachments/assets/ca5d3c98-b676-4239-8bf0-99b708a5a9f3)
+  
+
+
