@@ -63,7 +63,7 @@ Mesmo com escopo reduzido, as classes Usuario e Alerta foram fundamentais para o
 
 A experiência me ajudou a entender como os objetos e a lógica de POO se conectam em um projeto real.
 
-# Relatório de Produção Individual – Gabriel
+# Relatório Individual – Gabriel
 
 ## 1. Atribuição de cargo e tarefas
 ### Cargo atribuído:
