@@ -17,7 +17,7 @@ Desenvolver a classe Alerta para notificar o usuário sobre manutenções penden
 A classe Alerta tem como função representar as notificações relacionadas à manutenção dos equipamentos. Cada alerta inclui uma mensagem, a referência ao 
 equipamento associado, o nível de severidade e a data em que foi gerado. Seu funcionamento é direto: os alertas são criados quando a manutenção está próxima ou em 
 atraso, e podem ser exibidos ao usuário. A construção dessa classe é simples, com atributos, construtor e método de exibição. A data de emissão é gerada 
-automaticamente com LocalDate.now().
+automaticamente com LocalDate.
 
 Integrar ambas as funcionalidades no Main.
 
