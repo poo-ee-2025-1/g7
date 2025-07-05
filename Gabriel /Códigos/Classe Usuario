@@ -29,7 +29,11 @@ public class Usuario {
     public String getCargo() {
         return cargo;
     }
-
+    
+    public String getSenha() {
+    return senha;
+    }
+    
     public int getId() {
         return id;
     }
