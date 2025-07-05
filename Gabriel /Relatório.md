@@ -22,6 +22,9 @@ bem-sucedido, executa a verificação de manutenção dos equipamentos.
 
 #### Planejar e iniciar estrutura para uma futura Agenda e persistência com BancoDeDados.
 
+A classe BancoDeDados tem como principal objetivo gerenciar a persistência de dados da aplicação por meio de interações com um banco de dados SQLite. Ela 
+encapsula a lógica de criação da estrutura do banco, inserção e recuperação de dados, garantindo uma interface consistente e segura para o restante da aplicação.
+
 ### Responsabilidades exercidas na prática:
 
 #### Modelei e desenvolvi a classe Usuario, aplicando encapsulamento e lógica de autenticação.
