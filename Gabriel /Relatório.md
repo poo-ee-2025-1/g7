@@ -21,6 +21,10 @@ automaticamente com LocalDate.
 
 Integrar ambas as funcionalidades no Main.
 
+A classe Main tem como objetivo iniciar a aplicação e testar o fluxo de funcionamento básico do sistema. Ela realiza a autenticação do usuário e, se o login for 
+bem-sucedido, executa a verificação de manutenção dos equipamentos. Foi construída com o método main, utilizando um Scanner para entrada de dados e uma estrutura 
+de decisão if-else para controlar o acesso. Cria uma lista de equipamentos de exemplo e interage com as demais classes.
+
 Planejar e iniciar estrutura para uma futura Agenda e persistência com BancoDeDados.
 
 ### Responsabilidades exercidas na prática:
