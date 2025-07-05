@@ -54,45 +54,45 @@ Quando a aplicação é iniciada, a classe Database estabelece uma conexão com 
 
 ##### Objetivo: Garantir que o banco esteja pronto para uso logo no início da aplicação.
 
-###### Funcionamento: Através do método __init__ e da função create_tables(), o banco é inicializado e configurado.
+##### Funcionamento: Através do método __init__ e da função create_tables(), o banco é inicializado e configurado.
 
-###### Construção: Usa a biblioteca sqlite3 para conectar e executar comandos SQL.
+##### Construção: Usa a biblioteca sqlite3 para conectar e executar comandos SQL.
 
 ##### 2. Inserção de Dados
 Ao cadastrar um novo cliente, veículo ou serviço, os dados são enviados para a instância da classe Database, que realiza a inserção desses registros nas respectivas tabelas.
 
-###### Objetivo: Registrar informações de forma persistente no banco.
+##### Objetivo: Registrar informações de forma persistente no banco.
 
-###### Funcionamento: Métodos como cadastrar_cliente(), cadastrar_veiculo() e cadastrar_servico() executam comandos INSERT INTO com parâmetros fornecidos.
+##### Funcionamento: Métodos como cadastrar_cliente(), cadastrar_veiculo() e cadastrar_servico() executam comandos INSERT INTO com parâmetros fornecidos.
 
-###### Construção: SQL parametrizado para evitar injeção de comandos maliciosos e garantir segurança.
+##### Construção: SQL parametrizado para evitar injeção de comandos maliciosos e garantir segurança.
 
 ##### 3. Recuperação e Listagem de Dados
 Quando o usuário solicita a visualização de clientes, veículos ou serviços cadastrados, a classe Database é responsável por consultar os dados no banco e retorná-los à interface.
 
-###### Objetivo: Exibir os registros armazenados para visualização e edição.
+##### Objetivo: Exibir os registros armazenados para visualização e edição.
 
-###### Funcionamento: Métodos como buscar_clientes(), buscar_veiculos() e buscar_servicos() usam SELECT * para coletar os dados.
+##### Funcionamento: Métodos como buscar_clientes(), buscar_veiculos() e buscar_servicos() usam SELECT * para coletar os dados.
 
-###### Construção: Os dados são retornados em listas de tuplas que podem ser interpretadas pela camada de interface gráfica.
+##### Construção: Os dados são retornados em listas de tuplas que podem ser interpretadas pela camada de interface gráfica.
 
 ##### 4. Criação e Gerenciamento de Ordens de Serviço
 A classe também suporta a criação de ordens de serviço (OS), relacionando cliente, veículo e serviços realizados.
 
-###### Objetivo: Organizar os atendimentos realizados pela oficina, com vínculo aos demais dados.
+##### Objetivo: Organizar os atendimentos realizados pela oficina, com vínculo aos demais dados.
 
-###### Funcionamento: Através do método criar_ordem_servico(), que insere dados na tabela os.
+##### Funcionamento: Através do método criar_ordem_servico(), que insere dados na tabela os.
 
-###### Construção: Usa chaves estrangeiras para manter integridade relacional entre as tabelas.
+##### Construção: Usa chaves estrangeiras para manter integridade relacional entre as tabelas.
 
 ##### 5. Encerramento da Conexão com o Banco
 Quando a aplicação é encerrada ou não precisa mais interagir com o banco, a conexão é devidamente fechada para evitar vazamento de recursos.
 
-###### Objetivo: Encerrar conexões ativas de forma segura.
+##### Objetivo: Encerrar conexões ativas de forma segura.
 
-###### Funcionamento: Método fechar_conexao() é chamado para finalizar a conexão.
+##### Funcionamento: Método fechar_conexao() é chamado para finalizar a conexão.
 
-###### Construção: Invoca o método close() da conexão SQLite.
+##### Construção: Invoca o método close() da conexão SQLite.
 
 ![image](https://github.com/user-attachments/assets/acd34a7a-86c3-4d12-ac3f-dc8640254293)
 
