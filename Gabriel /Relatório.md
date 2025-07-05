@@ -159,3 +159,11 @@ https://www.youtube.com/watch?v=G2rChxrc1ug&t=3s&ab_channel=RodrigoFreitas
 
 Comando gerais usados
 https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html
+https://www.kufunda.net/publicdocs/Utilizando%20UML%20e%20padr%C3%B5es%20(Craig%20Larman).pdf
+
+Coleções JAVA
+https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
+https://docs.oracle.com/javase/8/docs/api/java/util/List.html
+
+Identificadores
+https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#equalsIgnoreCase-java.lang.String-
