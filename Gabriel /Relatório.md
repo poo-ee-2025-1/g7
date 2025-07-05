@@ -22,8 +22,10 @@ bem-sucedido, executa a verificação de manutenção dos equipamentos.
 
 #### Planejar e iniciar estrutura para uma futura Agenda e persistência com BancoDeDados.
 
-A classe BancoDeDados tem como principal objetivo gerenciar a persistência de dados da aplicação por meio de interações com um banco de dados SQLite. Ela 
-encapsula a lógica de criação da estrutura do banco, inserção e recuperação de dados, garantindo uma interface consistente e segura para o restante da aplicação.
+A classe BancoDeDados tem como principal objetivo gerenciar a persistência de dados da aplicação, seja por meio de interações com um banco de dados SQLite ou 
+simulando essa persistência ao armazenar e manipular objetos do tipo Equipamento em uma estrutura de dados interna (como uma ArrayList). Ela encapsula a lógica de 
+criação da estrutura do banco, inserção, recuperação, atualização e exclusão de dados, garantindo uma interface consistente e segura para o restante da aplicação 
+e sendo essencial para o gerenciamento das informações durante a execução do sistema.
 
 ### Responsabilidades exercidas na prática:
 
@@ -49,50 +51,23 @@ equipamentos de exemplo e interage com as demais classes.
 
 #### Iniciei o esboço da Agenda e da classe BancoDeDados.
 
-##### 1. Inicialização da Conexão com o Banco de Dados
-Quando a aplicação é iniciada, a classe BancoDeDados estabelece uma conexão com o banco de dados SQLite. Caso o arquivo de banco ainda não exista, ele é criado automaticamente. Em seguida, a classe executa a criação das tabelas necessárias para o funcionamento do sistema (cliente, veiculo, servico, e os) caso elas ainda não existam.
+##### 1. Salvar Dados
+Quando o sistema precisa registrar um novo equipamento, ele invoca o método salvar(Equipamento equipamento) da classe BancoDeDados. Esse método adiciona o novo 
+equipamento à lista interna que simula um banco de dados. O processo é simples e direto: o objeto é inserido na estrutura de dados que armazena todos os 
+equipamentos disponíveis.
 
-##### Objetivo: Garantir que o banco esteja pronto para uso logo no início da aplicação.
+##### 2. Buscar Equipamentos
+Para localizar um equipamento específico, seja por parte do sistema ou por ação de um administrador, utiliza-se o método buscarPorId(String id). Esse método 
+percorre a lista interna procurando pelo identificador informado. Quando encontra o equipamento correspondente, ele o retorna. Caso contrário, informa que o 
+equipamento não foi localizado.
 
-##### Funcionamento: Através do método __init__ e da função create_tables(), o banco é inicializado e configurado.
+##### 3. Atualizar Dados
+Se for necessário modificar os dados de um equipamento existente — por exemplo, ao registrar uma nova data de manutenção — o sistema chama o método 
+atualizar(Equipamento e). Esse método localiza o equipamento original com base no identificador e, uma vez encontrado, atualiza seus atributos com os novos 
+valores fornecidos. Isso garante que as informações permaneçam atualizadas e consistentes.
 
-##### Construção: Usa a biblioteca sqlite3 para conectar e executar comandos SQL.
-
-##### 2. Inserção de Dados
-Ao cadastrar um novo cliente, veículo ou serviço, os dados são enviados para a instância da classe BancoDeDados, que realiza a inserção desses registros nas respectivas tabelas.
-
-##### Objetivo: Registrar informações de forma persistente no banco.
-
-##### Funcionamento: Métodos como cadastrar_cliente(), cadastrar_veiculo() e cadastrar_servico() executam comandos INSERT INTO com parâmetros fornecidos.
-
-##### Construção: SQL parametrizado para evitar injeção de comandos maliciosos e garantir segurança.
-
-##### 3. Recuperação e Listagem de Dados
-Quando o usuário solicita a visualização de clientes, veículos ou serviços cadastrados, a classe BancoDeDados é responsável por consultar os dados no banco e retorná-los à interface.
-
-##### Objetivo: Exibir os registros armazenados para visualização e edição.
-
-##### Funcionamento: Métodos como buscar_clientes(), buscar_veiculos() e buscar_servicos() usam SELECT * para coletar os dados.
-
-##### Construção: Os dados são retornados em listas de tuplas que podem ser interpretadas pela camada de interface gráfica.
-
-##### 4. Criação e Gerenciamento de Ordens de Serviço
-A classe também suporta a criação de ordens de serviço (OS), relacionando cliente, veículo e serviços realizados.
-
-##### Objetivo: Organizar os atendimentos realizados pela oficina, com vínculo aos demais dados.
-
-##### Funcionamento: Através do método criar_ordem_servico(), que insere dados na tabela os.
-
-##### Construção: Usa chaves estrangeiras para manter integridade relacional entre as tabelas.
-
-##### 5. Encerramento da Conexão com o Banco
-Quando a aplicação é encerrada ou não precisa mais interagir com o banco, a conexão é devidamente fechada para evitar vazamento de recursos.
-
-##### Objetivo: Encerrar conexões ativas de forma segura.
-
-##### Funcionamento: Método fechar_conexao() é chamado para finalizar a conexão.
-
-##### Construção: Invoca o método close() da conexão SQLite.
+##### 4. Excluir Equipamentos
+A exclusão de equipamentos, especialmente os que não estão mais ativos ou em uso, é feita por meio do método excluir(String id). O sistema fornece o identificador do equipamento a ser removido, e o método localiza o objeto na lista e o elimina. Essa funcionalidade permite a limpeza e manutenção dos dados armazenados na memória, simulando uma exclusão real de banco de dados.
 
 ![image](https://github.com/user-attachments/assets/acd34a7a-86c3-4d12-ac3f-dc8640254293)
 
