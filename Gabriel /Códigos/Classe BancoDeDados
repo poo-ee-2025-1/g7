@@ -1,0 +1,33 @@
+public class BancoDeDados {
+    private static List<Equipamento> equipamentos = new ArrayList<>();
+
+    public static void salvar(Equipamento equipamento) {
+        equipamentos.add(equipamento);
+    }
+
+    public static Equipamento buscarPorId(String id) {
+        for (Equipamento e : equipamentos) {
+            if (e.getIdentificador().equalsIgnoreCase(id)) {
+                return e;
+            }
+        }
+        return null;
+    }
+
+    public static void atualizar(Equipamento novo) {
+        for (int i = 0; i < equipamentos.size(); i++) {
+            if (equipamentos.get(i).getIdentificador().equalsIgnoreCase(novo.getIdentificador())) {
+                equipamentos.set(i, novo);
+                break;
+            }
+        }
+    }
+
+    public static void excluir(String id) {
+        equipamentos.removeIf(e -> e.getIdentificador().equalsIgnoreCase(id));
+    }
+
+    public static List<Equipamento> listarTodos() {
+        return equipamentos;
+    }
+}
