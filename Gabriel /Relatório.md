@@ -13,34 +13,57 @@ A classe Usuario tem como objetivo realizar a autenticação de usuários e regi
 #### Desenvolver a classe Alerta para notificar o usuário sobre manutenções pendentes.
 
 A classe Alerta tem como função representar as notificações relacionadas à manutenção dos equipamentos. Cada alerta inclui uma mensagem, a referência ao 
-equipamento associado, o nível de severidade e a data em que foi gerado. Seu funcionamento é direto: os alertas são criados quando a manutenção está próxima ou em 
-atraso, e podem ser exibidos ao usuário. A construção dessa classe é simples, com atributos, construtor e método de exibição. A data de emissão é gerada 
-automaticamente com LocalDate.
+equipamento associado, o nível de severidade e a data em que foi gerado. 
 
 #### Integrar ambas as funcionalidades no Main.
 
 A classe Main tem como objetivo iniciar a aplicação e testar o fluxo de funcionamento básico do sistema. Ela realiza a autenticação do usuário e, se o login for 
-bem-sucedido, executa a verificação de manutenção dos equipamentos. Foi construída com o método main, utilizando um Scanner para entrada de dados e uma estrutura 
-de decisão if-else para controlar o acesso. Cria uma lista de equipamentos de exemplo e interage com as demais classes.
+bem-sucedido, executa a verificação de manutenção dos equipamentos.
 
 #### Planejar e iniciar estrutura para uma futura Agenda e persistência com BancoDeDados.
 
 ### Responsabilidades exercidas na prática:
 
-#### Modelei e desenvolvi a classe Usuario, aplicando encapsulamento e lógica de autenticação. 
+#### Modelei e desenvolvi a classe Usuario, aplicando encapsulamento e lógica de autenticação.
+
 Seu funcionamento baseia-se na verificação de e-mail e senha, permitindo o acesso ao sistema apenas mediante credenciais válidas. Também possui um método que 
 armazena e exibe os alertas encaminhados ao usuário. Foi construída com atributos privados (como nome, e-mail, senha e permissão), construtor, getters e métodos 
 de lógica simples.
 
-Criei a classe Alerta com cálculo de prazos e níveis de severidade com base em datas.
+#### Criei a classe Alerta com cálculo de prazos e níveis de severidade com base em datas. 
 
-Implementei a integração com o Main, permitindo a autenticação como etapa obrigatória.
+Seu funcionamento é direto: os alertas são criados quando a manutenção está próxima ou em atraso, e podem ser exibidos ao usuário. A construção dessa classe é 
+simples, com atributos, construtor e método de exibição. A data de emissão é gerada automaticamente com LocalDate.
 
-Simulei cenários de alertas baseados em Equipamento, conectando o ciclo completo de uso.
+#### Implementei a integração com o Main, permitindo a autenticação como etapa obrigatória.
 
-Contribuí com testes de fluxo e análise de falhas.
+Foi construída com o método main, utilizando um Scanner para entrada de dados e uma estrutura de decisão if-else para controlar o acesso. Cria uma lista de 
+equipamentos de exemplo e interage com as demais classes.
 
-Iniciei o esboço da Agenda e da classe BancoDeDados.
+#### Simulei cenários de alertas baseados em Equipamento, conectando o ciclo completo de uso.
+
+#### Contribuí com testes de fluxo e análise de falhas.
+
+#### Iniciei o esboço da Agenda e da classe BancoDeDados.
+
+![image](https://github.com/user-attachments/assets/acd34a7a-86c3-4d12-ac3f-dc8640254293)
+
+Usuário
+  |
+  | login()
+  v
+Sistema
+  |
+  | solicitarEquipamento(id)
+  v
+BancoDeDados
+  |
+  | buscarPorId(id)
+  v
+Busca na lista e retorna objeto
+  |
+  v
+Sistema exibe dados ao usuário
 
 ## 2. Contribuição de acordo com a atribuição
 ### Tarefas cumpridas:
