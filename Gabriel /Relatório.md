@@ -8,9 +8,7 @@ Desenvolvedor Java (foco em autenticação e sistema de alertas).
 
 #### Implementar a classe Usuario com sistema de login (e-mail/senha).
 
-A classe Usuario tem como objetivo realizar a autenticação de usuários e registrar os alertas recebidos por cada um deles. Seu funcionamento baseia-se na 
-verificação de e-mail e senha, permitindo o acesso ao sistema apenas mediante credenciais válidas. Também possui um método que armazena e exibe os alertas
-encaminhados ao usuário. Foi construída com atributos privados (como nome, e-mail, senha e permissão), construtor, getters e métodos de lógica simples.
+A classe Usuario tem como objetivo realizar a autenticação de usuários e registrar os alertas recebidos por cada um deles.
 
 #### Desenvolver a classe Alerta para notificar o usuário sobre manutenções pendentes.
 
@@ -29,7 +27,10 @@ de decisão if-else para controlar o acesso. Cria uma lista de equipamentos de e
 
 ### Responsabilidades exercidas na prática:
 
-Modelei e desenvolvi a classe Usuario, aplicando encapsulamento e lógica de autenticação.
+#### Modelei e desenvolvi a classe Usuario, aplicando encapsulamento e lógica de autenticação. 
+Seu funcionamento baseia-se na verificação de e-mail e senha, permitindo o acesso ao sistema apenas mediante credenciais válidas. Também possui um método que 
+armazena e exibe os alertas encaminhados ao usuário. Foi construída com atributos privados (como nome, e-mail, senha e permissão), construtor, getters e métodos 
+de lógica simples.
 
 Criei a classe Alerta com cálculo de prazos e níveis de severidade com base em datas.
 
