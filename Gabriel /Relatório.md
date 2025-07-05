@@ -50,7 +50,7 @@ equipamentos de exemplo e interage com as demais classes.
 #### Iniciei o esboço da Agenda e da classe BancoDeDados.
 
 ##### 1. Inicialização da Conexão com o Banco de Dados
-Quando a aplicação é iniciada, a classe Database estabelece uma conexão com o banco de dados SQLite. Caso o arquivo de banco ainda não exista, ele é criado automaticamente. Em seguida, a classe executa a criação das tabelas necessárias para o funcionamento do sistema (cliente, veiculo, servico, e os) caso elas ainda não existam.
+Quando a aplicação é iniciada, a classe BancoDeDados estabelece uma conexão com o banco de dados SQLite. Caso o arquivo de banco ainda não exista, ele é criado automaticamente. Em seguida, a classe executa a criação das tabelas necessárias para o funcionamento do sistema (cliente, veiculo, servico, e os) caso elas ainda não existam.
 
 ##### Objetivo: Garantir que o banco esteja pronto para uso logo no início da aplicação.
 
@@ -59,7 +59,7 @@ Quando a aplicação é iniciada, a classe Database estabelece uma conexão com 
 ##### Construção: Usa a biblioteca sqlite3 para conectar e executar comandos SQL.
 
 ##### 2. Inserção de Dados
-Ao cadastrar um novo cliente, veículo ou serviço, os dados são enviados para a instância da classe Database, que realiza a inserção desses registros nas respectivas tabelas.
+Ao cadastrar um novo cliente, veículo ou serviço, os dados são enviados para a instância da classe BancoDeDados, que realiza a inserção desses registros nas respectivas tabelas.
 
 ##### Objetivo: Registrar informações de forma persistente no banco.
 
@@ -68,7 +68,7 @@ Ao cadastrar um novo cliente, veículo ou serviço, os dados são enviados para 
 ##### Construção: SQL parametrizado para evitar injeção de comandos maliciosos e garantir segurança.
 
 ##### 3. Recuperação e Listagem de Dados
-Quando o usuário solicita a visualização de clientes, veículos ou serviços cadastrados, a classe Database é responsável por consultar os dados no banco e retorná-los à interface.
+Quando o usuário solicita a visualização de clientes, veículos ou serviços cadastrados, a classe BancoDeDados é responsável por consultar os dados no banco e retorná-los à interface.
 
 ##### Objetivo: Exibir os registros armazenados para visualização e edição.
 
