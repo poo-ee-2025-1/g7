@@ -131,6 +131,10 @@ Encapsulamento adequado com uso de getters/setters em Usuario.
 
 Integração com o Main para bloqueio de acesso em caso de login inválido.
 
+Fiquei responsável por desenvolver a classe UsuarioDAO e a estrutura do banco de dados para resolver uma parte do problema do grupo. No entanto, ao longo do 
+desenvolvimento do projeto, percebi que a solução completa adotada não utilizou todas as funcionalidades que eu implementei. Em vez disso, o que eu fiz contribuiu 
+de forma mais pontual e auxiliou em algumas partes específicas do projeto final.
+
 ### Commits/documentos mais relevantes:
 
 Implementação da classe Usuario com autenticação via e-mail/senha.
