@@ -315,6 +315,10 @@ end
 
 ![Diagrama de sequência](https://cdn-0.plantuml.com/plantuml/png/LP11JWCn34NtFeNLLKU22x10PG4Ng3Z09sCWKZ8fZkV-U2QDEiaYyPV--p_ofHhKrfm8mOhoPrsXiT0DQZ746nRZqpLMaumJe_9z7WtlVwjFMHOhk-cWH-DR4hKMr4QYUoC_l_PiVk5QaZC6lSQy9WIK3wHVdEKHF56tEtaetEWTqePCH4Z6tvlWMKo2OGQndqD0-uspGIEqgRFdLVn8VkAXTqJxofnL2V8bdSR-J2JBJ7JnUzloFm00)
 
+---
+
+## Os diagramas foram criados sem integração das classes de interface, uma vez que o objetivo é só uma base para o projeto, para seu melhor intendimento e leitura.
+
 
 
 
