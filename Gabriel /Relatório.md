@@ -72,6 +72,9 @@ Desenvolvedor Java (foco em autenticação e sistema de alertas).
 ### Responsabilidades atribuídas:
 
 Implementar a classe Usuario com sistema de login (e-mail/senha).
+A classe Usuario tem como objetivo realizar a autenticação de usuários e registrar os alertas recebidos por cada um deles. Seu funcionamento baseia-se na 
+verificação de e-mail e senha, permitindo o acesso ao sistema apenas mediante credenciais válidas. Também possui um método que armazena e exibe os alertas
+encaminhados ao usuário. Foi construída com atributos privados (como nome, e-mail, senha e permissão), construtor, getters e métodos de lógica simples.
 
 Desenvolver a classe Alerta para notificar o usuário sobre manutenções pendentes.
 
