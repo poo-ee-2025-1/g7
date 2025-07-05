@@ -188,7 +188,7 @@ Entendi como representar entidades do sistema de forma limpa, usando boas práti
 
 Implementar a classe Agenda, permitindo agendamentos personalizados de manutenção.
 
-Implementar a persistência de dados com a classe BancoDeDados usando SQLite.
+A estrutura inicial da classe foi implementada, mas a funcionalidade completa ainda não foi finalizada.
 
 Melhorar o feedback ao usuário sobre tentativas de login com erros específicos.
 
