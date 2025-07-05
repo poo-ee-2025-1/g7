@@ -52,7 +52,7 @@ equipamentos de exemplo e interage com as demais classes.
 ##### 1. Inicialização da Conexão com o Banco de Dados
 Quando a aplicação é iniciada, a classe Database estabelece uma conexão com o banco de dados SQLite. Caso o arquivo de banco ainda não exista, ele é criado automaticamente. Em seguida, a classe executa a criação das tabelas necessárias para o funcionamento do sistema (cliente, veiculo, servico, e os) caso elas ainda não existam.
 
-###### Objetivo: Garantir que o banco esteja pronto para uso logo no início da aplicação.
+##### Objetivo: Garantir que o banco esteja pronto para uso logo no início da aplicação.
 
 ###### Funcionamento: Através do método __init__ e da função create_tables(), o banco é inicializado e configurado.
 
